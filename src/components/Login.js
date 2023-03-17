@@ -1,7 +1,13 @@
 import '../styles/login.css';
-import { login } from '../services/userService';
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export const Login = () => {
+import { login } from '../services/userService';
+import { AuthContext } from '../services/contexts/AuthContext';
+
+ export const Login = () => {
+  const {userLogin} = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -17,6 +23,11 @@ export const Login = () => {
     login(email, password)
     .then(authData => {
       console.log(authData);
+      userLogin(authData);
+      navigate('/');
+    })
+    .catch(() => {
+      navigate('/404')
     })
   };
 
@@ -90,3 +101,4 @@ export const Login = () => {
 
   )
 }
+

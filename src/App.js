@@ -1,5 +1,6 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
+import { AuthContext } from './services/contexts/AuthContext';
 
 import { Catalog } from "./components/Catalog";
 import { Footer } from "./components/Footer";
@@ -9,12 +10,21 @@ import { Header } from "./components/Header";
 import { Home } from './components/Home';
 import { Login } from './components/Login';
 import { Register } from './components/Register';
+import { useState } from 'react';
 
 
 
 function App() {
+  const [auth, setAuth] = useState({});
+  const navigate = useNavigate();
+
+  const userLogin = (authData) => {
+    setAuth(authData)
+  }
+
   return (
-    <div>
+    <AuthContext.Provider value={{ user:auth, userLogin}}>
+    <div >
       <TopBar />
       <Header />
       <main id="main-content">
@@ -31,6 +41,7 @@ function App() {
       </main>
 
     </div>
+    </AuthContext.Provider>
   );
 }
 

@@ -1,6 +1,11 @@
-import { Link } from "react-router-dom"
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+
+import { AuthContext } from "../services/contexts/AuthContext";
+
 
 export const Header = () => {
+    const { user } = useContext(AuthContext);
     return (
         <nav className="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
             <a href="" className="text-decoration-none d-block d-lg-none">
@@ -21,14 +26,22 @@ export const Header = () => {
                 id="navbarCollapse"
             >
                 <div className="navbar-nav ml-auto py-0" >
-                    <Link  to="/"  style={{ marginRight: "30px" }}>Home </Link>
+                    <Link to="/" style={{ marginRight: "30px" }}>Home </Link>
+
                     <Link to="/catalog" style={{ marginRight: "30px" }}> Catalog </Link>
-                    <Link  to="/details" style={{ marginRight: "30px" }}> Details</Link>
-                    <Link  to="/logout" style={{ marginRight: "30px" }}>Logout</Link>
-                    <Link  to="/login" style={{ marginRight: "30px" }}> Login</Link>
-                    <Link  to="/register"> Register</Link>
-                    
-                </div>
+                    <Link to="/details" style={{ marginRight: "30px" }}> Details</Link>
+
+                    {user.email
+                        ? <div id="user">
+                            <Link to="/add">Add Product</Link>
+                            <Link to="/logout" style={{ marginRight: "30px" }}>Logout</Link>
+                        </div>
+                        : <div id="guest">
+                            <Link to="/login" style={{ marginRight: "30px" }}> Login</Link>
+                            <Link to="/register"> Register</Link>
+                        </div>
+}
+            </div>
             </div>
         </nav>
     )
