@@ -158,7 +158,7 @@ a {
 }
 
 a:hover {
-  color: #dc98c9;
+  color: #e28dca;
   text-decoration: underline;
 }
 
@@ -1596,7 +1596,7 @@ pre code {
 .table-primary td,
 .table-primary thead th,
 .table-primary tbody + tbody {
-  border-color: #e7ccc9;
+  border-color: #e7c3de;
 }
 
 .table-hover .table-primary:hover {
@@ -1699,23 +1699,23 @@ pre code {
 .table-danger,
 .table-danger > th,
 .table-danger > td {
-  background-color: #ed7dd3;
+  background-color: #e375c9;
 }
 
 .table-danger th,
 .table-danger td,
 .table-danger thead th,
 .table-danger tbody + tbody {
-  border-color: #d476a7;
+  border-color: #c46a98;
 }
 
 .table-hover .table-danger:hover {
-  background-color: #e282cf;
+  background-color: #b15da0;
 }
 
 .table-hover .table-danger:hover > td,
 .table-hover .table-danger:hover > th {
-  background-color: #f3ace6;
+  background-color: #db7ac9;
 }
 
 .table-light,
@@ -2365,34 +2365,34 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #212529;
-  background-color: #d197c7;
-  border-color: #cf97d1;
+  background-color: #d27ac3;
+  border-color: #ca7acc;
 }
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #c57cb3;
-  border-color: #c174bd;
+  background-color: #cb7db8;
+  border-color: #c574c1;
 }
 
 .btn-primary:focus, .btn-primary.focus {
   color: #fff;
-  background-color: #c57cb9;
-  border-color: #c174a5;
+  background-color: #c683bb;
+  border-color: #ad6593;
   box-shadow: 0 0 0 0.2rem rgba(183, 138, 135, 0.5);
 }
 
 .btn-primary.disabled, .btn-primary:disabled {
   color: #212529;
-  background-color: #d197cb;
-  border-color: #ca97d1;
+  background-color: #b97fb4;
+  border-color: #b37bba;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
 .show > .btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: #c174b9;
-  border-color: #bd6bad;
+  background-color: #a86ea1;
+  border-color: #a9659b;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
@@ -2660,8 +2660,8 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-primary {
-  color: #d197c1;
-  border-color: #d197d1;
+  color: #b86ea3;
+  border-color: #c88ac8;
 }
 
 .btn-outline-primary:hover {
@@ -2675,15 +2675,15 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-primary.disabled, .btn-outline-primary:disabled {
-  color: #d197c8;
+  color: #cd86c2;
   background-color: transparent;
 }
 
 .btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active,
 .show > .btn-outline-primary.dropdown-toggle {
   color: #212529;
-  background-color: #d197c5;
-  border-color: #d197c5;
+  background-color: #b67daa;
+  border-color: #c58db9;
 }
 
 .btn-outline-primary:not(:disabled):not(.disabled):active:focus, .btn-outline-primary:not(:disabled):not(.disabled).active:focus,
@@ -2917,7 +2917,7 @@ fieldset:disabled a.btn {
 
 .btn-link {
   font-weight: 400;
-  color: #d197cf;
+  color: #c58bc3;
   text-decoration: none;
 }
 
@@ -3214,7 +3214,7 @@ input[type="button"].btn-block {
 .dropdown-item.active, .dropdown-item:active {
   color: #fff;
   text-decoration: none;
-  background-color: #cd97d1;
+  background-color: #c78ecb;
 }
 
 .dropdown-item.disabled, .dropdown-item:disabled {
@@ -3564,8 +3564,8 @@ input[type="button"].btn-block {
 }
 
 .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::before {
-  border-color: #d197c7;
-  background-color: #d197c7;
+  border-color: #bf7db4;
+  background-color: #c78abc;
 }
 
 .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::after {
@@ -3848,7 +3848,7 @@ input[type="button"].btn-block {
   margin-top: 0;
   margin-right: 0.2rem;
   margin-left: 0.2rem;
-  background-color: #d197c7;
+  background-color: #bd7bb2;
   border: 0;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   appearance: none;
@@ -3976,7 +3976,7 @@ input[type="button"].btn-block {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #d197c7;
+  background-color: #c98fbf;
 }
 
 .nav-fill > .nav-link,
