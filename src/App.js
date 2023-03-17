@@ -3,10 +3,12 @@ import { Routes, Route } from 'react-router-dom';
 import { Catalog } from "./components/Catalog";
 import { Footer } from "./components/Footer";
 import { TopBar } from "./components/TopBar";
-import { Products } from "./components/Products";
-import { Subscribe } from "./components/Subscribe";
+import { Details } from './components/Details';
 import { Header } from "./components/Header";
 import { Home } from './components/Home';
+import { Login } from './components/Login';
+import { Register } from './components/Register';
+
 
 
 function App() {
@@ -17,17 +19,16 @@ function App() {
       <main id="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/catalog" element={<Catalog />} />
+          <Route path="/details" element={<Details />} />
+
         </Routes>
+
+        <Footer />
       </main>
-      
 
-      <Catalog />
-
-      <Products />
-
-      <Subscribe />
-
-      <Footer />
     </div>
   );
 }

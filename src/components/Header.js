@@ -20,25 +20,14 @@ export const Header = () => {
                 className="collapse navbar-collapse justify-content-between"
                 id="navbarCollapse"
             >
-                <div className="navbar-nav ml-auto py-0" x >
-                    <Link  to="/"  style={{ marginRight: "30px" }}>
-                        Home
-                    </Link>
-                    <Link to="/details" style={{ marginRight: "30px" }}>
-                        Details
-                    </Link>
-                    <Link   to="/contacts" style={{ marginRight: "30px" }}>
-                        Contacts
-                    </Link>
-                    <Link  to="/logout" style={{ marginRight: "30px" }}>
-                        Logout
-                    </Link>
-                    <Link  to="/login" style={{ marginRight: "30px" }}>
-                        Login
-                    </Link>
-                    <Link  to="/register">
-                        Register
-                    </Link>
+                <div className="navbar-nav ml-auto py-0" >
+                    <Link  to="/"  style={{ marginRight: "30px" }}>Home </Link>
+                    <Link to="/catalog" style={{ marginRight: "30px" }}> Catalog </Link>
+                    <Link  to="/details" style={{ marginRight: "30px" }}> Details</Link>
+                    <Link  to="/logout" style={{ marginRight: "30px" }}>Logout</Link>
+                    <Link  to="/login" style={{ marginRight: "30px" }}> Login</Link>
+                    <Link  to="/register"> Register</Link>
+                    
                 </div>
             </div>
         </nav>

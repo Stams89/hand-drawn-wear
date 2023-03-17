@@ -1,6 +1,6 @@
 import { Product } from "./Product";
 
-export const Products = () => {
+export const Details = () => {
   return (
     <div className="container-fluid pt-5">
       <div className="text-center mb-4">
