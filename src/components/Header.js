@@ -6,6 +6,7 @@ import { AuthContext } from "../services/contexts/AuthContext";
 
 export const Header = () => {
     const { user } = useContext(AuthContext);
+    
     return (
         <nav className="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
             <a href="" className="text-decoration-none d-block d-lg-none">
@@ -33,7 +34,7 @@ export const Header = () => {
 
                     {user.email
                         ? <div id="user">
-                            <Link to="/add">Add Product</Link>
+                            <Link to="/add" style={{ marginRight: "30px" }}>Add Product</Link>
                             <Link to="/logout" style={{ marginRight: "30px" }}>Logout</Link>
                         </div>
                         : <div id="guest">

@@ -26,6 +26,8 @@ const onSubmit = (e) => {
       .then(authData => {
         userLogin(authData);
         navigate('/');
+        console.log(email);
+        console.log(password);
       })
   }
     return (

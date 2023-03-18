@@ -2,7 +2,7 @@ export const request = async (method, url, data) => {
 
     try {
         const user = localStorage.getItem('auth');
-        const auth = JSON.parse(user || {});
+        const auth = JSON.parse(user || "{}");
 
         let headers = {};
 
@@ -19,7 +19,7 @@ export const request = async (method, url, data) => {
                 method,
                 headers: {
                     ...headers,
-                    'content-type': 'application/json'
+                    'Content-type': 'application/json'
                 },
                 body: JSON.stringify(data)
             })

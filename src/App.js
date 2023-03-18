@@ -1,6 +1,8 @@
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
 import { AuthContext } from './services/contexts/AuthContext';
+import { useLocalStorage } from './hooks/useLocalStorage';
+
 
 import { Catalog } from "./components/Catalog";
 import { Footer } from "./components/Footer";
@@ -11,7 +13,7 @@ import { Home } from './components/Home';
 import { Login } from './components/Login';
 import { Register } from './components/Register';
 import { useState } from 'react';
-
+import { Logout } from './components/Logout';
 
 
 function App() {
@@ -22,25 +24,27 @@ function App() {
     setAuth(authData)
   }
 
+
   return (
-    <AuthContext.Provider value={{ user:auth, userLogin}}>
-    <div >
-      <TopBar />
-      <Header />
-      <main id="main-content">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={ <Register />}/>
-          <Route path="/catalog" element={<Catalog />} />
-          <Route path="/details" element={<Details />} />
+    <AuthContext.Provider value={{ user: auth, userLogin }}>
+      <div >
+        <TopBar />
+        <Header />
+        <main id="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/catalog" element={<Catalog />} />
+            <Route path="/details" element={<Details />} />
+            <Route path="/logout" element={<Logout />} />
 
-        </Routes>
+          </Routes>
 
-        <Footer />
-      </main>
+          <Footer />
+        </main>
 
-    </div>
+      </div>
     </AuthContext.Provider>
   );
 }

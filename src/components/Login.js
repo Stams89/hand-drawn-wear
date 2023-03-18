@@ -2,11 +2,11 @@ import '../styles/login.css';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { login } from '../services/userService';
+import * as userService from '../services/userService';
 import { AuthContext } from '../services/contexts/AuthContext';
 
- export const Login = () => {
-  const {userLogin} = useContext(AuthContext);
+export const Login = () => {
+  const { userLogin } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const onSubmit = (e) => {
@@ -20,15 +20,15 @@ import { AuthContext } from '../services/contexts/AuthContext';
     console.log(email);
     console.log(password);
 
-    login(email, password)
-    .then(authData => {
-      console.log(authData);
-      userLogin(authData);
-      navigate('/');
-    })
-    .catch(() => {
-      navigate('/404')
-    })
+    userService.login(email, password)
+      .then(authData => {
+        console.log(authData);
+        userLogin(authData);
+        navigate('/catalog');
+      })
+      .catch(() => {
+        navigate('/404')
+      })
   };
 
   return (
@@ -53,7 +53,7 @@ import { AuthContext } from '../services/contexts/AuthContext';
 
                       <div className="form-outline mb-4">
 
-                        <label  htmlFor="email">Email</label>
+                        <label htmlFor="email">Email</label>
                       </div>
                       <div className="form-outline mb-4">
                         <input
@@ -62,19 +62,19 @@ import { AuthContext } from '../services/contexts/AuthContext';
                           name="email"
                           className="form-control"
                         />
-                        <label  htmlFor="password"> Password</label>
+                        <label htmlFor="password"> Password</label>
                       </div>
-                      
+
                       <div className="d-flex align-items-center justify-content-center pb-4">
                         <input
                           type="password"
                           id="password"
-                          name="email"
+                          name="password"
                           className="form-control"
                         />
                         <button
                           className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
-                          type="button"
+                          type="submit"
                         >
                           Log in
                         </button>
@@ -101,4 +101,3 @@ import { AuthContext } from '../services/contexts/AuthContext';
 
   )
 }
-
