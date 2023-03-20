@@ -14,6 +14,7 @@ import { Login } from './components/Login';
 import { Register } from './components/Register';
 import { useState } from 'react';
 import { Logout } from './components/Logout';
+import { AddProduct } from './components/AddProduct';
 
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
 
 
   return (
-    <AuthContext.Provider value={{ user: auth, userLogin }}>
+    <AuthContext.Provider value={ {user:auth, userLogin}}>
       <div >
         <TopBar />
         <Header />
@@ -38,6 +39,7 @@ function App() {
             <Route path="/catalog" element={<Catalog />} />
             <Route path="/details" element={<Details />} />
             <Route path="/logout" element={<Logout />} />
+            <Route path="/add" element={<AddProduct />} />
 
           </Routes>
 

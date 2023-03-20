@@ -2,8 +2,11 @@ import '../styles/login.css';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import * as userService from '../services/userService';
 import { AuthContext } from '../services/contexts/AuthContext';
+
+import { auth } from "./firebase";
+
+
 
 export const Login = () => {
   const { userLogin } = useContext(AuthContext);
@@ -12,23 +15,17 @@ export const Login = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    const {
-      email,
-      password
-    } = Object.fromEntries(new FormData(e.target));
+    const { email, password } = Object.fromEntries(new FormData(e.target));
 
-    console.log(email);
-    console.log(password);
-
-    userService.login(email, password)
-      .then(authData => {
-        console.log(authData);
-        userLogin(authData);
+   auth.signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        const { user } = userCredential;
+        userLogin(user);
         navigate('/catalog');
       })
-      .catch(() => {
-        navigate('/404')
-      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (

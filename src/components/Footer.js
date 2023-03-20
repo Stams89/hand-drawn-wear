@@ -66,7 +66,7 @@ export const Footer = () => {
                 </div>
                 <div className="form-group">
                   <input
-                    type="email"
+                    type="text"
                     className="form-control border-0 py-4"
                     placeholder="Your Email"
                     required="required"
