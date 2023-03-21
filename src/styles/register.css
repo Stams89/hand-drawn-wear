@@ -3,9 +3,9 @@
 body {
   margin: 0;
   padding: 0;
-  background: #fee2fe;
+  background: #eed1ee;
   font-size: 16px;
-  color: #f6c9e9;
+  color: #e7bada;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
 }
@@ -14,8 +14,8 @@ body {
   position: relative;
   margin: 5% auto;
   width: 600px;
-  height: 400px;
-  background: #de9fee;
+  height: 600px;
+  background: #d6dde8;
   border-radius: 2px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
@@ -36,36 +36,33 @@ h1 {
   font-size: 28px;
 }
 
-input[type="text"],
-input[type="password"] {
-  display: block;
-  box-sizing: border-box;
-  margin-bottom: 20px;
-  padding: 4px;
-  width: 220px;
-  height: 32px;
-  border: none;
-  border-bottom: 1px solid #ce4cc8;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  font-size: 15px;
-  transition: 0.2s ease;
+input[type="text-info"],
+input[type="pass"] {
+  background: #f2f2f4;
+  padding: 30px;
+  padding-left: 20px;
+  height: 50px;
+  margin-top: 10px;
+  font-size: 20px;
+  border-radius: 40px;
+  box-shadow: inset 6px 6px 6px #e198f4, inset -6px -6px 6px rgb(240, 179, 242);
+border-radius: 50px;
 }
 
 input[type="text"]:focus,
-input[type="password"]:focus {
-  border-bottom: 2px solid #d259e4;
-  color: #b745cc;
+input[type="pass"]:focus {
+  border-bottom: 2px solid #e39aee;
+  color: #eaa9f6;
   transition: 0.2s ease;
 }
 
 input[type="submit"] {
-  margin-top: 28px;
-  width: 120px;
-  height: 32px;
-  background: #bc25d3;
+  margin-top: 58px;
+  width: 220px;
+  height: 82px;
+  background: #f5b5f3;
   border: none;
-  border-radius: 2px;
+  border-radius: 50px;
   color: #FFF;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
@@ -93,7 +90,7 @@ input[type="submit"]:active {
   left: 280px;
   width: 40px;
   height: 40px;
-  background: #eacdee;
+  background: #e9c3ed;
   border-radius: 50%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   line-height: 40px;
@@ -157,3 +154,4 @@ button.social-signin.twitter {
 button.social-signin.google {
   background: #eb99d1;
 }
+

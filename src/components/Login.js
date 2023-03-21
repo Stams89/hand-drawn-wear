@@ -7,7 +7,6 @@ import { AuthContext } from '../services/contexts/AuthContext';
 import { auth } from "./firebase";
 
 
-
 export const Login = () => {
   const { userLogin } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -17,7 +16,7 @@ export const Login = () => {
 
     const { email, password } = Object.fromEntries(new FormData(e.target));
 
-   auth.signInWithEmailAndPassword(email, password)
+    auth.signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
         const { user } = userCredential;
         userLogin(user);
@@ -41,7 +40,7 @@ export const Login = () => {
                     <div className="text-center">
                       <img
                         src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
-                        style={{ width: 185 }}
+                        style={{ width: 85 }}
                         alt="logo"
                       />
                       <h4 className="mt-1 mb-5 pb-1">We are here for you</h4>
@@ -58,6 +57,7 @@ export const Login = () => {
                           id="email"
                           name="email"
                           className="form-control"
+                          style={{ width: 220, marginTop: '-2rem' }}
                         />
                         <label htmlFor="password"> Password</label>
                       </div>
@@ -68,10 +68,14 @@ export const Login = () => {
                           id="password"
                           name="password"
                           className="form-control"
+                          style={{ width: 385, marginTop: '-2rem' }}
+                п
                         />
+
                         <button
                           className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
                           type="submit"
+                          style={{ marginTop: '10rem' }}
                         >
                           Log in
                         </button>

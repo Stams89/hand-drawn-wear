@@ -21,6 +21,7 @@ export const Register = () => {
     const repass = formData.get('repass');
 
     if (password !== repass) {
+     
       return;
     }
     auth
@@ -39,10 +40,10 @@ export const Register = () => {
         <div id="login-box">
           <div className="left">
             <h1>Register</h1>
-            <input type="text" name="username" placeholder="Username" />
-            <input type="text" name="email" placeholder="E-mail" />
-            <input type="password" name="password" placeholder="Password" />
-            <input type="password" name="repass" placeholder="Retype password" />
+            <input type="text-info" name="username" placeholder="Username" />
+            <input type="text-info" name="email" placeholder="E-mail" />
+            <input type="pass" name="password" placeholder="Password" />
+            <input type="pass" name="repass" placeholder="Retype password" />
             <input type="submit" name="signup_submit" defaultValue="Sign me up" />
           </div>
           <div className="right">

@@ -7,16 +7,22 @@ import { auth } from "./firebase";
 export const Logout = () => {
   const navigate = useNavigate();
   const { user, userLogout } = useContext(AuthContext);
+  
+  const handleLogout = async () => {
+    try {
+      await auth.signOut(user.accessToken);
+      userLogout();
+      localStorage.clear(); 
+      navigate('/');
+    } catch (error) {
+      console.log(error);
+      navigate('/');
+    }
+  };
 
   useEffect(() => {
-    auth.signOut(user.accessToken)
-      .then(() => {
-        userLogout();
-        navigate('/');
-      })
-      .catch(() => {
-        navigate('/');
-      })
-  });
+    handleLogout();
+  }, []);
+
   return null;
 }

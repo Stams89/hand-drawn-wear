@@ -6,7 +6,7 @@
 	background: -webkit-linear-gradient(to right, #52054f, #6f0b62, #52075e, #b44593);
 	
 	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-	background: linear-gradient(to right, #510842, #db26bd, #ca7ccf, #b44593);
+	background: linear-gradient(to right, #da9acd, #db26bd, #ca7ccf, #b44593);
 	}
 	
 	@media (min-width: 768px) {
@@ -20,3 +20,19 @@
 	border-bottom-right-radius: .3rem;
 	}
 	}
+
+	label[for="password"] {
+		margin-bottom: 0.1rem;
+	  }
+	  input[type="password"] {
+		width: 100%;
+	  }
+	  .form-outline.mb-4 {
+		height: 10px; 
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	  }
+	  label[for="password"] {
+		margin-bottom: -5rem;
+	  }
