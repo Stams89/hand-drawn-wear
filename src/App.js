@@ -24,36 +24,32 @@ function App() {
   const navigate = useNavigate();
 
   const [products, setProducts] = useState([]);
-
+ 
   useEffect(() => {
     const db = firebase.firestore();
     db.collection("Products")
       .get()
-      .then((querySnapshot) => {
+      .then((result) => {
         const data = [];
-        querySnapshot.forEach((doc) => {
-          data.push(doc.data());
+        result.forEach((doc) => {
+          data.push({ id: doc.id, ...doc.data() });
         });
         setProducts(data);
-        console.log(products);
       });
   }, []);
+ 
 
   const userLogin = (authData) => {
     setAuth(authData)
   }
 
- const onAddProductSubmit = async (data) => {
-  const db = firebase.firestore();
-  const newProductRef = await db.collection("Products").add(data);
-  const newProduct = {_id: newProductRef.id, ...data };
-  console.log(newProduct);
-  setProducts((prevProducts) => [...prevProducts, newProduct]);
-
-  navigate ('/catalog');
-  // perform any additional actions here, such as displaying a success message or redirecting the user
-}
-
+  const onAddProductSubmit = async (data) => {
+    const db = firebase.firestore();
+    const newProductRef = await db.collection("Products").add(data);
+    navigate ('/catalog');
+    // perform any additional actions here, such as displaying a success message or redirecting the user
+  }
+  console.log(products);
   return (
     <AuthContext.Provider value={{ user: auth, userLogin }}>
       <div >
@@ -64,7 +60,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/catalog" element={<Catalog  products={products}/>} />
+            <Route path="/catalog" element={<Catalog products={products} />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/add" element={<AddProduct onAddProductSubmit={onAddProductSubmit}/>} />
             <Route path="/catalog/:prodId" element={<Details  />} />

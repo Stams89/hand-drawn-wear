@@ -8,7 +8,7 @@ export const Catalog = ({
   products
  
 }) => {
-
+console.log(products);
   return (
     <div className="container-fluid pt-5">
       <div className="text-center mb-4">
@@ -17,7 +17,7 @@ export const Catalog = ({
         </h2>
       </div>
       <div className="row px-xl-5 pb-3" style={{ marginBottom: "150px" }}>
-        {products.map(x => <CatalogItem key={x._id} {...x} />)}
+        {products.map(x => <CatalogItem key={x.id} {...x} />)}
         {products.length === 0 && (
           <h3 className="no-articles">No products yet</h3>
         )}
