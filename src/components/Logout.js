@@ -12,13 +12,15 @@ export const Logout = () => {
     try {
       await auth.signOut(user.accessToken);
       userLogout();
-      localStorage.clear(); 
+      localStorage.clear();
+      user = null; 
       navigate('/');
     } catch (error) {
       console.log(error);
       navigate('/');
     }
   };
+  
 
   useEffect(() => {
     handleLogout();

@@ -31,7 +31,6 @@ export const Header = () => {
                     <Link to="/" style={{ marginRight: "30px" }}>Home </Link>
 
                     <Link to="/catalog" style={{ marginRight: "30px" }}> Catalog </Link>
-                    <Link to="/details" style={{ marginRight: "30px" }}> Details</Link>
 
                     { user.email
                         ? <div id="user">
