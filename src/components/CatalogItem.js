@@ -4,7 +4,8 @@ export const CatalogItem = ({
   id,
   name,
   img,
-  price
+  price,
+  
 }) => {
   return (
     <div className="card product-item border-0" style={{ height: "400px", width: "250px", marginBottom: "50px",  marginRight: "2%",}}>

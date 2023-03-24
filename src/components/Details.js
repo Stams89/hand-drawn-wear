@@ -3,9 +3,14 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import firebase from '../../src/components/firebase';
 
+
 export function Details() {
   const { prodId } = useParams();
   const [product, setProduct] = useState({});
+  const [likes, setLikes] = useState(() => {
+    const likesStr = localStorage.getItem(`likes-${prodId}`);
+    return likesStr ? parseInt(likesStr) : 0;
+  });
   const [comment, setComment] = useState({
     username: "",
     comment: "",
@@ -13,9 +18,55 @@ export function Details() {
 
   useEffect(() => {
     const db = firebase.firestore();
+
+    const updateLikes = async () => {
+      try {
+        await db.collection('Products').doc(prodId).update({
+          likes: likes,
+        });
+        localStorage.setItem(`likes-${prodId}`, likes.toString());
+      } catch (error) {
+        console.log('Error updating document:', error);
+      }
+    };
+
+    updateLikes();
+  }, [likes, prodId]);
+
+  useEffect(() => {
+    const db = firebase.firestore();
+
+    const getLikes = async () => {
+      const likesStr = localStorage.getItem(`likes-${prodId}`);
+      if (likesStr) {
+        setLikes(parseInt(likesStr));
+      } else {
+        try {
+          const doc = await db.collection('Products').doc(prodId).get();
+
+          if (doc.exists) {
+            const likesData = doc.data().likes;
+            setLikes(likesData);
+            localStorage.setItem(`likes-${prodId}`, likesData.toString());
+          } else {
+            console.log('No such document!');
+          }
+        } catch (error) {
+          console.log('Error getting document:', error);
+        }
+      }
+    };
+
+    getLikes();
+  }, [prodId]);
+
+  useEffect(() => {
     const getProduct = async () => {
+      const db = firebase.firestore();
+
       try {
         const doc = await db.collection('Products').doc(prodId).get();
+
         if (doc.exists) {
           const productData = { id: doc.id, ...doc.data() };
           localStorage.setItem('product', JSON.stringify(productData));
@@ -27,29 +78,45 @@ export function Details() {
         console.log('Error getting document:', error);
       }
     };
-    const storedProduct = JSON.parse(localStorage.getItem('product'));
-    if (storedProduct && storedProduct.id === prodId) {
-      setProduct(storedProduct);
-    } else {
-      getProduct();
-    }
+
+    getProduct();
   }, [prodId]);
 
   if (!product) {
     return <div>Loading...</div>;
   }
 
-  const addCommentHandler = (e) => {
-    e.preventDefault();
-    console.log(comment.username, comment.comment);
-  }
+  const handleLikeClick = () => {
+    setLikes(likes + 1);
+  };
 
-  const onChange = (e) => {
-    setComment(state => ({
-      ...state,
-      [e.target.name]: e.target.value
-    }))
-  }
+  // const addCommentHandler = async (e) => {
+  //   e.preventDefault();
+  //   const db = firebase.firestore();
+  //   const newComment = {
+  //     username: comment.username,
+  //     comment: comment.comment,
+  //     productId: prodId,
+  //     createdAt: new Date(),
+  //   };
+  //   try {
+  //     await db.collection('Comments').add(newComment);
+  //     setComment({ username: '', comment: '' });
+  //     alert('Comment added successfully!');
+  //   } catch (error) {
+  //     console.log('Error adding comment:', error);
+  //     alert('Error adding comment. Please try again.');
+  //   }
+  // }
+
+  // const onChange = (e) => {
+  //   setComment(state => ({
+  //     ...state,
+  //     [e.target.name]: e.target.value
+  //   }))
+  // }
+console.log(product);
+
   return (
     <div className="container my-5">
       <div className="card details-card p-0">
@@ -98,9 +165,13 @@ export function Details() {
               <div style={{ clear: "both" }} />
               <hr />
               <p className="product">About this product</p>
-              <p className="product" mb->{product.description}</p>
+              <p className="product-description" mb="0">{product.description}</p>
               <hr />
 
+              <button onClick={handleLikeClick}>
+                <i className="fa fa-thumbs-up"></i> Like ({likes})
+              </button>
+            
 
             </div>
           </div>
@@ -108,7 +179,7 @@ export function Details() {
         {/* End row */}
       </div>
 
-      <form>
+      {/* <form>
         <div className="form-group" onSubmit={addCommentHandler}>
           <label htmlFor="comments" style={{ fontSize: "24px" }}>Comments</label>
           <input
@@ -129,7 +200,7 @@ export function Details() {
           />
         </div>
         <button type="submit" className="btn btn-primary">Submit</button>
-      </form>
+      </form> */}
 
 
     </div>

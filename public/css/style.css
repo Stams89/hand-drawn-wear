@@ -81,6 +81,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
+  color: #ae1cd3;
   margin-top: 0;
   margin-bottom: 1rem;
 }
@@ -221,7 +222,7 @@ th {
 
 label {
   color: #212529;
-  background-color: #ce7cd7;
+
   display: inline-block;
   margin-bottom: 0.5rem;
 }
@@ -267,8 +268,12 @@ select {
 button,
 [type="button"],
 [type="reset"],
+
 [type="submit"] {
   -webkit-appearance: button;
+  color: #6c0785;
+  background-color: #efe4f5;
+  border-radius: 20px;
 }
 
 button:not(:disabled),
