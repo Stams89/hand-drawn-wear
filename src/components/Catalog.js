@@ -1,6 +1,4 @@
-import { Details } from "./Details";
-import { useEffect, useState } from "react";
-import firebase from "./firebase";
+
 import "./firebase";
 import { CatalogItem } from "./CatalogItem";
 

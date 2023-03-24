@@ -1,25 +1,55 @@
+import '../styles/details.css';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import firebase from '../../src/components/firebase';
 
 export function Details() {
   const { prodId } = useParams();
-  const [product, setProduct] = useState(null);
+  const [product, setProduct] = useState({});
+  const [comment, setComment] = useState({
+    username: "",
+    comment: "",
+  });
 
   useEffect(() => {
     const db = firebase.firestore();
-    db.collection("Products")
-      .doc(prodId)
-      .get()
-      .then((doc) => {
-        setProduct({ id: doc.id, ...doc.data() });
-      });
+    const getProduct = async () => {
+      try {
+        const doc = await db.collection('Products').doc(prodId).get();
+        if (doc.exists) {
+          const productData = { id: doc.id, ...doc.data() };
+          localStorage.setItem('product', JSON.stringify(productData));
+          setProduct(productData);
+        } else {
+          console.log('No such document!');
+        }
+      } catch (error) {
+        console.log('Error getting document:', error);
+      }
+    };
+    const storedProduct = JSON.parse(localStorage.getItem('product'));
+    if (storedProduct && storedProduct.id === prodId) {
+      setProduct(storedProduct);
+    } else {
+      getProduct();
+    }
   }, [prodId]);
 
   if (!product) {
     return <div>Loading...</div>;
   }
 
+  const addCommentHandler = (e) => {
+    e.preventDefault();
+    console.log(comment.username, comment.comment);
+  }
+
+  const onChange = (e) => {
+    setComment(state => ({
+      ...state,
+      [e.target.name]: e.target.value
+    }))
+  }
   return (
     <div className="container my-5">
       <div className="card details-card p-0">
@@ -28,6 +58,7 @@ export function Details() {
             <img
               className="img-fluid details-img"
               src={product.img}
+
               alt={product.name}
             />
           </div>
@@ -61,37 +92,46 @@ export function Details() {
                   type="submit"
                   className="btn btn-primary btn-lg"
                 >
-                  Add to Wishlist
+                  Add Comment
                 </button>
               </form>
               <div style={{ clear: "both" }} />
               <hr />
-              <p className="product-title mt-4 mb-1">About this product</p>
-              <p className="product-description mb-4">{product.description}</p>
+              <p className="product">About this product</p>
+              <p className="product" mb->{product.description}</p>
               <hr />
-              <p className="product-title mt-4 mb-1">Share this product</p>
-              <ul className="social-list">
-                <li>
-                  <a href="#">
-                    <i className="fa-brands fa-facebook" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fa-brands fa-twitter" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fa-brands fa-square-instagram" />
-                  </a>
-                </li>
-              </ul>
+
+
             </div>
           </div>
         </div>
         {/* End row */}
       </div>
+
+      <form>
+        <div className="form-group" onSubmit={addCommentHandler}>
+          <label htmlFor="comments" style={{ fontSize: "24px" }}>Comments</label>
+          <input
+            type=""
+            name="username"
+            placeholder=''
+            onChange={onChange}
+            value={comment.username}
+          />
+          <textarea
+            className="form-control"
+            id="comments"
+            rows="6"
+            name="comment"
+            placeholder='Comment......'
+            onChange={onChange}
+            value={comment.comment}
+          />
+        </div>
+        <button type="submit" className="btn btn-primary">Submit</button>
+      </form>
+
+
     </div>
   );
 };

@@ -27,12 +27,14 @@ export const Header = () => {
                 id="navbarCollapse"
             >
                 <div className="navbar-nav ml-auto py-0" >
-                {user.email && <span  style={{ marginRight: "30px" }}>{user.email}</span>}
+                {user && user.email && <span style={{ marginRight: "30px" }}>{user.email}</span>}
+
                     <Link to="/" style={{ marginRight: "30px" }}>Home </Link>
+                 
 
                     <Link to="/catalog" style={{ marginRight: "30px" }}> Catalog </Link>
+                    {user && user.email && <span  style={{ marginRight: "30px" }}>{user.email}</span>
 
-                    { user.email
                         ? <div id="user">
                             <Link to="/add" style={{ marginRight: "30px" }}>Add Product</Link>
                             <Link to="/logout" style={{ marginRight: "30px" }}>Logout</Link>

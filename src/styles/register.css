@@ -60,7 +60,7 @@ input[type="submit"] {
   margin-top: 58px;
   width: 220px;
   height: 82px;
-  background: #f5b5f3;
+  background: #d50ece;
   border: none;
   border-radius: 50px;
   color: #FFF;
@@ -90,7 +90,7 @@ input[type="submit"]:active {
   left: 280px;
   width: 40px;
   height: 40px;
-  background: #e9c3ed;
+  background: #e8c6eb;
   border-radius: 50%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   line-height: 40px;
@@ -110,6 +110,14 @@ input[type="submit"]:active {
   background-position: center;
   border-radius: 0 2px 2px 0;
 }
+
+.error-message {
+  position: absolute;
+  top: 120%;
+  right: 30;
+  transform: translateY(-50%);
+}
+
 
 .right .loginwith {
   display: block;
@@ -152,6 +160,11 @@ button.social-signin.twitter {
 }
 
 button.social-signin.google {
-  background: #eb99d1;
+  background: #f6b1e0;
 }
 
+.alert-danger {
+  color: #721c24;
+  background-color: #fcba58;
+  border-color: #f5c6cb;
+}

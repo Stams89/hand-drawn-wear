@@ -1,7 +1,7 @@
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
-import { AuthContext } from './services/contexts/AuthContext';
-import { useLocalStorage } from './hooks/useLocalStorage';
+import { AuthProvider } from '../src/services/contexts/AuthContext';
+
 
 import { Catalog } from "./components/Catalog";
 import { Footer } from "./components/Footer";
@@ -46,12 +46,14 @@ function App() {
   const onAddProductSubmit = async (data) => {
     const db = firebase.firestore();
     const newProductRef = await db.collection("Products").add(data);
-    navigate ('/catalog');
+    const newProduct = { id: newProductRef.id, ...data };
+    setProducts((prevProducts) => [...prevProducts, newProduct]);
+    navigate("/catalog");
     // perform any additional actions here, such as displaying a success message or redirecting the user
-  }
-  console.log(products);
+  };
+
   return (
-    <AuthContext.Provider value={{ user: auth, userLogin }}>
+    <AuthProvider value={{ user: auth, userLogin }}>
       <div >
         <TopBar />
         <Header />
@@ -70,7 +72,7 @@ function App() {
         </main>
 
       </div>
-    </AuthContext.Provider>
+    </AuthProvider>
   );
 }
 

@@ -1,5 +1,5 @@
 import '../styles/login.css';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { AuthContext } from '../services/contexts/AuthContext';
@@ -8,24 +8,28 @@ import { auth } from "./firebase";
 
 
 export const Login = () => {
-  const { userLogin } = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const onSubmit = (e) => {
     e.preventDefault();
-
-    const { email, password } = Object.fromEntries(new FormData(e.target));
-
+  
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+  
     auth.signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
         const { user } = userCredential;
-        userLogin(user);
+        login(user);
         navigate('/catalog');
       })
       .catch((error) => {
-        console.log(error);
+        setErrorMessage(error.message);
       });
   };
+  
+  
 
   return (
 
@@ -53,6 +57,7 @@ export const Login = () => {
                       </div>
                       <div className="form-outline mb-4">
                         <input
+                     
                           type="email"
                           id="email"
                           name="email"
@@ -64,6 +69,7 @@ export const Login = () => {
 
                       <div className="d-flex align-items-center justify-content-center pb-4">
                         <input
+                     
                           type="password"
                           id="password"
                           name="password"
@@ -81,6 +87,7 @@ export const Login = () => {
                         </button>
                       </div>
                       <div className="d-flex align-items-center justify-content-center pb-4">
+                      {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
                       </div>
                     </form>
                   </div>

@@ -6,25 +6,29 @@ import { auth } from "./firebase";
 
 export const Logout = () => {
   const navigate = useNavigate();
-  const { user, userLogout } = useContext(AuthContext);
-  
+  const { user, logout } = useContext(AuthContext);
+  let currentUser = user;
+
+
+
   const handleLogout = async () => {
     try {
-      await auth.signOut(user.accessToken);
-      userLogout();
+      await auth.signOut(currentUser.accessToken);
+      logout();
       localStorage.clear();
-      user = null; 
+      currentUser = null;
       navigate('/');
+
     } catch (error) {
       console.log(error);
       navigate('/');
     }
   };
-  
+
 
   useEffect(() => {
     handleLogout();
-  }, []);
+  }, [handleLogout]);
 
   return null;
 }

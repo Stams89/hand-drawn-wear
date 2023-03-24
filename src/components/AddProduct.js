@@ -5,9 +5,9 @@ export const AddProduct = ({
   onAddProductSubmit,
 }) => {
   const [values, setValue] = useState({
-    Name: "",
-    Description: "",
-    Price: "",
+    name: "",
+    description: "",
+    price: "",
     img: "",
   });
 
@@ -30,28 +30,28 @@ export const AddProduct = ({
           <h1>Add Product</h1>
           <label htmlFor="name">Name:</label>
           <input
-            value={values.Name}
+            value={values.name}
             onChange={onChangeHandler}
             type="text"
             id="title"
-            name="Name"
+            name="name"
             placeholder="Enter name..."
           />
-          <label htmlFor="details">Details:</label>
+          <label htmlFor="details">Description:</label>
           <input
-            value={values.Details}
+            value={values.description}
             onChange={onChangeHandler}
             type="text"
             id="details"
-            name="Details"
+            name="description"
             placeholder="Enter product details..."
           />
           <label htmlFor="price">Price:</label>
-          <input value={values.Price}
+          <input value={values.price}
             onChange={onChangeHandler}
             type="number"
             id="price"
-            name="Price"
+            name="price"
             min={1}
             placeholder={1}
           />
