@@ -3,19 +3,19 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
 import firebase from '../../src/components/firebase';
 import { AuthContext } from '../services/contexts/AuthContext';
-
+import { useNavigate } from 'react-router-dom';
 
 export function Details() {
   const { currentUser } = useContext(AuthContext);
   const userId = currentUser ? currentUser._delegate.uid : null;
-  console.log(userId);
   const { prodId } = useParams();
   const [product, setProduct] = useState({});
+  
   const [likes, setLikes] = useState(() => {
     const likesStr = localStorage.getItem(`likes-${prodId}`);
     return likesStr ? parseInt(likesStr) : 0;
   });
- 
+  const navigate = useNavigate();
   // const [comment, setComment] = useState({
   //   username: "",
   //   comment: "",
@@ -95,16 +95,20 @@ export function Details() {
     setLikes(likes + 1);
   };
 
+
   const handleDeleteClick = async () => {
     const db = firebase.firestore();
     try {
       await db.collection('Products').doc(prodId).delete();
       alert('Product deleted successfully!');
+      navigate('/catalog', { replace: true });
     } catch (error) {
       console.log('Error deleting product:', error);
       alert('Error deleting product. Please try again.');
     }
   };
+ 
+  
 
 
   // const addCommentHandler = async (e) => {
@@ -163,12 +167,23 @@ export function Details() {
                   max={10}
                 />
                 {product.owner === userId && (
-
-                  <div className="buttons">
-                    <a href="#" className="button">Edit</a>
-                    <a href="#" className="button">Delete</a>
+                  <div className="buttons d-flex">
+                    <button
+                      name="add_to_cart"
+                      type="submit"
+                      className="btn btn-primary btn-lg flex-grow-1 mr-1"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      name="delete_product"
+                      type="button"
+                      className="btn btn-primary btn-lg flex-grow-1"
+                      onClick={handleDeleteClick}
+                    >
+                      Delete
+                    </button>
                   </div>
-
                 )}
 
               </form>
