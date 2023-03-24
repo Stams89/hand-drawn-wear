@@ -1,16 +1,18 @@
 
 import '../styles/add.css';
-import { useState } from 'react';
-export const AddProduct = ({
-  onAddProductSubmit,
-}) => {
+import { useState, useContext } from 'react';
+import { AuthContext } from '../services/contexts/AuthContext';
+
+export const AddProduct = ({ onAddProductSubmit }) => {
+  const { currentUser } = useContext(AuthContext);
+  
   const [values, setValue] = useState({
     name: "",
     description: "",
     price: "",
     img: "",
+    owner: currentUser ? currentUser.uid : null // set owner to uid of current user or null if no user is logged in
   });
-
 
   const onChangeHandler = (e) => {
     setValue(state => ({ ...state, [e.target.name]: e.target.value }))
@@ -18,7 +20,6 @@ export const AddProduct = ({
 
   const onSubmit = (e) => {
     e.preventDefault();
-
     onAddProductSubmit(values);
   }
   return (

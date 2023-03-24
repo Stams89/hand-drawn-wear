@@ -6,7 +6,7 @@ import { AuthContext } from "../services/contexts/AuthContext";
 
 export const Header = () => {
     const { user } = useContext(AuthContext);
-
+console.log(user);
     return (
         <nav className="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
             <a href="" className="text-decoration-none d-block d-lg-none">
