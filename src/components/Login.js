@@ -6,7 +6,6 @@ import { AuthContext } from '../services/contexts/AuthContext';
 
 import { auth } from "./firebase";
 
-
 export const Login = () => {
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -28,9 +27,6 @@ export const Login = () => {
         setErrorMessage(error.message);
       });
   };
-  
-  
-
   return (
 
     <section className="h-100 gradient-form" style={{ backgroundColor: "#eee" }}>
@@ -69,15 +65,12 @@ export const Login = () => {
 
                       <div className="d-flex align-items-center justify-content-center pb-4">
                         <input
-                     
                           type="password"
                           id="password"
                           name="password"
                           className="form-control"
                           style={{ width: 385, marginTop: '-2rem' }}
-                п
                         />
-
                         <button
                           className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
                           type="submit"

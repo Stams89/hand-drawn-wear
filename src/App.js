@@ -6,10 +6,11 @@ import { AuthProvider } from '../src/services/contexts/AuthContext';
 import { Catalog } from "./components/Catalog";
 import { Footer } from "./components/Footer";
 import { TopBar } from "./components/TopBar";
-import { Details } from './components/Details';
+import {Details} from './components/Details';
 import { Header } from "./components/Header";
 import { Home } from './components/Home';
 import { Login } from './components/Login';
+import { EditProduct } from './components/EditProduct';
 import { Register } from './components/Register';
 import { useState } from 'react';
 import { Logout } from './components/Logout';
@@ -66,6 +67,7 @@ function App() {
             <Route path="/logout" element={<Logout />} />
             <Route path="/add" element={<AddProduct onAddProductSubmit={onAddProductSubmit}/>} />
             <Route path="/catalog/:prodId" element={<Details  />} />
+            <Route path="/catalog/:prodId/edit" element={<EditProduct />} />
           </Routes>
 
           <Footer />

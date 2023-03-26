@@ -15,7 +15,7 @@
 
 .main-description1 {
     position: absolute;
-    top: 50%;
+    top: 45%;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);

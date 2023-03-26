@@ -1,0 +1,27 @@
+button,
+input{
+    overflow: visible;
+    background: #f2f2f4;
+    padding: 20px;
+    padding-left: 15px;
+    height: 70px;
+    margin-top: 35px;
+    font-size: 20px;
+    border-radius: 40px;
+    box-shadow: inset 6px 6px 6px #cf1fea, inset -6px -6px 6px rgb(240, 179, 242);
+    border-radius: 50px;
+}
+
+input[type="number"] {
+    background: #f2f2f4;
+    padding: 30px;
+    padding-left: 20px;
+    height: 50px;
+    margin-top: 10px;
+    font-size: 24px;
+    border-radius: 40px;
+    box-shadow: inset 6px 6px 6px #cf1fea, inset -6px -6px 6px rgb(240, 179, 242);
+  border-radius: 50px;
+  }
+  
+  

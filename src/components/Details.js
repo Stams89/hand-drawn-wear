@@ -1,69 +1,22 @@
 import '../styles/details.css';
-import { useParams } from 'react-router-dom';
+
 import { useState, useEffect, useContext } from 'react';
+import { useParams } from 'react-router-dom';
 import firebase from '../../src/components/firebase';
 import { AuthContext } from '../services/contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export function Details() {
   const { currentUser } = useContext(AuthContext);
   const userId = currentUser ? currentUser._delegate.uid : null;
   const { prodId } = useParams();
   const [product, setProduct] = useState({});
-  
-  const [likes, setLikes] = useState(() => {
-    const likesStr = localStorage.getItem(`likes-${prodId}`);
-    return likesStr ? parseInt(likesStr) : 0;
-  });
+  const [catalog, setCatalog] = useState(
+    JSON.parse(localStorage.getItem('catalog')) || []
+  );
+
   const navigate = useNavigate();
-  // const [comment, setComment] = useState({
-  //   username: "",
-  //   comment: "",
-  // });
-
-  useEffect(() => {
-    const db = firebase.firestore();
-
-    const updateLikes = async () => {
-      try {
-        await db.collection('Products').doc(prodId).update({
-          likes: likes,
-        });
-        localStorage.setItem(`likes-${prodId}`, likes.toString());
-      } catch (error) {
-        console.log('Error updating document:', error);
-      }
-    };
-
-    updateLikes();
-  }, [likes, prodId]);
-
-  useEffect(() => {
-    const db = firebase.firestore();
-
-    const getLikes = async () => {
-      const likesStr = localStorage.getItem(`likes-${prodId}`);
-      if (likesStr) {
-        setLikes(parseInt(likesStr));
-      } else {
-        try {
-          const doc = await db.collection('Products').doc(prodId).get();
-
-          if (doc.exists) {
-            const likesData = doc.data().likes;
-            setLikes(likesData);
-            localStorage.setItem(`likes-${prodId}`, likesData.toString());
-          } else {
-            console.log('No such document!');
-          }
-        } catch (error) {
-          console.log('Error getting document:', error);
-        }
-      }
-    };
-
-    getLikes();
-  }, [prodId]);
 
   useEffect(() => {
     const getProduct = async () => {
@@ -87,57 +40,53 @@ export function Details() {
     getProduct();
   }, [prodId]);
 
-  if (!product) {
-    return <div>Loading...</div>;
-  }
+  useEffect(() => {
+    const getCatalog = async () => {
+      const db = firebase.firestore();
 
-  const handleLikeClick = () => {
-    setLikes(likes + 1);
-  };
+      try {
+        const snapshot = await db.collection('Products').get();
 
+        const catalogData = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+
+        setCatalog(catalogData);
+        localStorage.setItem('catalog', JSON.stringify(catalogData));
+      } catch (error) {
+        console.log('Error getting catalog:', error);
+      }
+    };
+
+    getCatalog();
+  }, []);
 
   const handleDeleteClick = async () => {
     const db = firebase.firestore();
     try {
       await db.collection('Products').doc(prodId).delete();
       alert('Product deleted successfully!');
+  
+      // Get the updated catalog from Firebase after deleting the product
+      const snapshot = await db.collection('Products').get();
+      const catalogData = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setCatalog(catalogData);
+  
+      // Update the local storage version of the catalog
+      localStorage.setItem('catalog', JSON.stringify(catalogData));
+  
       navigate('/catalog', { replace: true });
     } catch (error) {
       console.log('Error deleting product:', error);
       alert('Error deleting product. Please try again.');
     }
   };
- 
   
-
-
-  // const addCommentHandler = async (e) => {
-  //   e.preventDefault();
-  //   const db = firebase.firestore();
-  //   const newComment = {
-  //     username: comment.username,
-  //     comment: comment.comment,
-  //     productId: prodId,
-  //     createdAt: new Date(),
-  //   };
-  //   try {
-  //     await db.collection('Comments').add(newComment);
-  //     setComment({ username: '', comment: '' });
-  //     alert('Comment added successfully!');
-  //   } catch (error) {
-  //     console.log('Error adding comment:', error);
-  //     alert('Error adding comment. Please try again.');
-  //   }
-  // }
-
-  // const onChange = (e) => {
-  //   setComment(state => ({
-  //     ...state,
-  //     [e.target.name]: e.target.value
-  //   }))
-  // }
-
-
+   
   return (
     <div className="container my-5">
       <div className="card details-card p-0">
@@ -146,8 +95,8 @@ export function Details() {
             <img
               className="img-fluid details-img"
               src={product.img}
-
               alt={product.name}
+              style={{ width: "90%" }}
             />
           </div>
           <div className="col-md-6 col-sm-12 description-container p-5">
@@ -157,7 +106,7 @@ export function Details() {
               <hr />
               <p className="product-price">${product.price}</p>
               <form className="add-inputs" method="post">
-                <input
+                {/* <input
                   type="number"
                   className="form-control"
                   id="cart_quantity"
@@ -165,49 +114,35 @@ export function Details() {
                   defaultValue={1}
                   min={1}
                   max={10}
-                />
+                /> */}
                 {product.owner === userId && (
                   <div className="buttons d-flex">
-                    <button
-                      name="add_to_cart"
-                      type="submit"
-                      className="btn btn-primary btn-lg flex-grow-1 mr-1"
-                    >
-                      Edit
-                    </button>
+                    <Link to={`/catalog/${prodId}/edit`} className="btn btn-primary btn-lg flex-grow-1 mx-2" style={{ backgroundColor: "rgb(195, 119, 222);", borderColor: "#f0ad4e" }}>Edit</Link>
                     <button
                       name="delete_product"
                       type="button"
-                      className="btn btn-primary btn-lg flex-grow-1"
+                      className="btn btn-primary btn-lg flex-grow-1 mx-2"
                       onClick={handleDeleteClick}
+                      style={{ backgroundColor: "#rgb(195, 119, 222)", borderColor: "#d9534f" }}
                     >
                       Delete
                     </button>
                   </div>
-                )}
 
+                )}
               </form>
               <form className="add-inputs" method="post">
-
-
               </form>
               <div style={{ clear: "both" }} />
               <hr />
               <p className="product">About this product</p>
               <p className="product-description" mb="0">{product.description}</p>
               <hr />
-
-              <button onClick={handleLikeClick}>
-                <i className="fa fa-thumbs-up"></i> Like ({likes})
-              </button>
-
-
             </div>
           </div>
         </div>
         {/* End row */}
       </div>
-
       {/* <form>
         <div className="form-group" onSubmit={addCommentHandler}>
           <label htmlFor="comments" style={{ fontSize: "24px" }}>Comments</label>
@@ -230,8 +165,6 @@ export function Details() {
         </div>
         <button type="submit" className="btn btn-primary">Submit</button>
       </form> */}
-
-
     </div>
   );
 };

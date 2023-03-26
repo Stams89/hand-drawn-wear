@@ -1,5 +1,5 @@
-
 import '../styles/add.css';
+
 import { useState, useContext } from 'react';
 import { AuthContext } from '../services/contexts/AuthContext';
 
@@ -23,8 +23,6 @@ export const AddProduct = ({ onAddProductSubmit }) => {
     onAddProductSubmit(values);
   }
   return (
-
-
     <section id="create-page" className="auth">
       <form id="create" onSubmit={onSubmit}>
         <div className="container">
@@ -77,4 +75,3 @@ export const AddProduct = ({ onAddProductSubmit }) => {
   )
 
 }
-
