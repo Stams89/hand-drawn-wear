@@ -6,7 +6,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
  :root {
-  font-size: 19px;
+  font-size: 18px;
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -644,6 +644,7 @@ pre code {
   flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px;
+  
 }
 
 .no-gutters {
@@ -1265,6 +1266,7 @@ pre code {
   .col-lg-6 {
     flex: 0 0 50%;
     max-width: 50%;
+  
   }
   .col-lg-7 {
     flex: 0 0 58.33333%;
@@ -6105,12 +6107,6 @@ a.close.disabled {
 
 .bg-primary {
   background-color: #d197c7 !important;
-}
-
-a.bg-primary:hover, a.bg-primary:focus,
-button.bg-primary:hover,
-button.bg-primary:focus {
-  background-color: #c17a74 !important;
 }
 
 .bg-secondary {

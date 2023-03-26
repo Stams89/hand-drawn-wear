@@ -2,7 +2,6 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 
 import { AuthProvider } from '../src/services/contexts/AuthContext';
 
-
 import { Catalog } from "./components/Catalog";
 import { Footer } from "./components/Footer";
 import { TopBar } from "./components/TopBar";
@@ -16,6 +15,8 @@ import { useState } from 'react';
 import { Logout } from './components/Logout';
 import { AddProduct } from './components/AddProduct';
 import { useEffect } from 'react';
+import { About } from './components/Contacts';
+
 import firebase from '../src/components/firebase';
 import "../src/components/firebase";
 
@@ -68,6 +69,7 @@ function App() {
             <Route path="/add" element={<AddProduct onAddProductSubmit={onAddProductSubmit}/>} />
             <Route path="/catalog/:prodId" element={<Details  />} />
             <Route path="/catalog/:prodId/edit" element={<EditProduct />} />
+            <Route path="/about" element={<About  />} />
           </Routes>
 
           <Footer />

@@ -13,10 +13,10 @@ export const Login = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-  
+
     const email = e.target.email.value;
     const password = e.target.password.value;
-  
+
     auth.signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
         const { user } = userCredential;
@@ -35,12 +35,12 @@ export const Login = () => {
           <div className="col-xl-10">
             <div className="card rounded-3 text-black">
               <div className="row g-0">
-                <div className="col-lg-6">
+                <div className="col-lg-66">
                   <div className="card-body p-md-5 mx-md-4">
                     <div className="text-center">
                       <img
                         src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
-                        style={{ width: 85 }}
+                        style={{ width: 155 }}
                         alt="logo"
                       />
                       <h4 className="mt-1 mb-5 pb-1">We are here for you</h4>
@@ -49,18 +49,17 @@ export const Login = () => {
 
                       <div className="form-outline mb-4">
 
-                        <label htmlFor="email">Email</label>
+                        <label htmlFor="email" >Email</label>
                       </div>
                       <div className="form-outline mb-4">
                         <input
-                     
                           type="email"
                           id="email"
                           name="email"
                           className="form-control"
-                          style={{ width: 220, marginTop: '-2rem' }}
+                          style={{ width: 245, marginTop: '-2rem' }}
                         />
-                        <label htmlFor="password"> Password</label>
+                        <label htmlFor="password" style={{ marginTop: '1rem' }}> Password</label>
                       </div>
 
                       <div className="d-flex align-items-center justify-content-center pb-4">
@@ -72,15 +71,15 @@ export const Login = () => {
                           style={{ width: 385, marginTop: '-2rem' }}
                         />
                         <button
-                          className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
+                          className="btn btn-primary15 btn-block fa-lg gradient-custom-2 mb-3"
                           type="submit"
-                          style={{ marginTop: '10rem' }}
+                          style={{ width: 250, marginTop: '7em' }}
                         >
                           Log in
                         </button>
                       </div>
                       <div className="d-flex align-items-center justify-content-center pb-4">
-                      {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
+                        {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
                       </div>
                     </form>
                   </div>

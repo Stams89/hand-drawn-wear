@@ -1,38 +1,95 @@
+/* Login form */
 .gradient-custom-2 {
-	/* fallback for old browsers */
 	background: #eae5e8;
-	
-	/* Chrome 10-25, Safari 5.1-6 */
-	background: -webkit-linear-gradient(to right, #52054f, #6f0b62, #52075e, #b44593);
-	
-	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-	background: linear-gradient(to right, #da9acd, #db26bd, #ca7ccf, #b44593);
-	}
-	
-	@media (min-width: 768px) {
-	.gradient-form {
-	height: 100vh !important;
-	}
-	}
-	@media (min-width: 749px) {
-	.gradient-custom-2 {
-	border-top-right-radius: .3rem;
-	border-bottom-right-radius: .3rem;
-	}
-	}
+	background: -webkit-linear-gradient(to right, #f6bcf4, #ef64da, #52075e, #b44593);
+	background: linear-gradient(to right, #772567, #f6b2ea, #fac3fe, #e12fb5);
+}
 
-	label[for="password"] {
-		margin-bottom: 0.1rem;
-	  }
-	  input[type="password"] {
-		width: 100%;
-	  }
-	  .form-outline.mb-4 {
-		height: 10px; 
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-	  }
-	  label[for="password"] {
-		margin-bottom: -5rem;
-	  }
+@media (min-width: 768px) {
+	.gradient-form {
+		height: 100vh !important;
+	}
+}
+
+@media (min-width: 749px) {
+	.gradient-custom-2 {
+		border-top-right-radius: .3rem;
+		border-bottom-right-radius: .3rem;
+	}
+}
+
+/* Form fields and labels */
+label[for="password"] {
+	margin-bottom: 0.5rem;
+	font-size: 0.9rem;
+	
+}
+input[type="email"], input[type="password"] {
+	width: 100%;
+	padding: 0.5rem;
+	font-size: 0.9rem;
+}
+.form-outline.mb-4 {
+	height: 0px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+/* Error message */
+.alert-danger {
+	font-size: 0.9rem;
+	padding: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+
+
+a.bg-primary:hover,
+a.bg-primary:focus,
+button.bg-primary:hover,
+button.bg-primary:focus {
+	background-color: #f7a1e9 !important;
+}
+
+@media (min-width: 768px) {
+	.gradient-form {
+		height: 100vh !important;
+	}
+}
+.col-lg-66 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    height: 550px; /* or any other desired height value */
+  }
+@media (min-width: 749px) {
+	.gradient-custom-2 {
+		border-top-right-radius: .3rem;
+		border-bottom-right-radius: .3rem;
+	}
+}
+
+label[for="password"] {
+	margin-bottom: 0.1rem;
+}
+
+input[type="password"] {
+	width: 80%;
+	border: 5px solid rgb(181, 90, 195); /* change the color and size as needed */
+  }
+  input[type="email"] {
+	width: 80%;
+	border: 5px solid rgb(181, 90, 195); /* change the color and size as needed */
+  }
+	
+  
+
+.form-outline.mb-4 {
+	height: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+label[for="password"] {
+	margin-bottom: -5rem;
+}
