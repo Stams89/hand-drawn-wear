@@ -12,7 +12,6 @@ Technologies
 -   ReactJS
 -   Firebase Authentication and Firestore
 -   Bootstrap
--   Stripe Payment Gateway
 
 Deployment
 ----------
