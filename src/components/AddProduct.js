@@ -54,6 +54,13 @@ export const AddProduct = ({ onAddProductSubmit }) => {
             min={1}
             placeholder={1}
           />
+          <label htmlFor="type">Type:</label>
+          <input value={values.type}
+            onChange={onChangeHandler}
+            type="text"
+            id="type"
+            name="type"
+          />
           <label htmlFor="game-img">Image:</label>
           <input value={values.img}
             onChange={onChangeHandler}

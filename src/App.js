@@ -56,7 +56,7 @@ function App() {
   return (
     <AuthProvider value={{ user: auth, userLogin }}>
       <div >
-        <TopBar />
+        <TopBar products={products}/>
         <Header />
         <main id="main-content">
           <Routes>
