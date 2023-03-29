@@ -7,9 +7,9 @@ export const CatalogItem = ({
   img,
   price,
   likes,
+  type,
 }) => {
   const [numLikes, setNumLikes] = useState(likes ?? 0);
-
 
   useEffect(() => {
     const storedLikes = localStorage.getItem(`likes_${id}`);

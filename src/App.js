@@ -16,6 +16,7 @@ import { Logout } from './components/Logout';
 import { AddProduct } from './components/AddProduct';
 import { useEffect } from 'react';
 import { About } from './components/Contacts';
+import { Categories } from './components/Categories';
 
 import firebase from '../src/components/firebase';
 import "../src/components/firebase";
@@ -57,11 +58,11 @@ function App() {
   return (
     <AuthProvider value={{ user: auth, userLogin }}>
       <div >
-        <TopBar products={products}/>
+        <TopBar />
         <Header />
         <main id="main-content">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home products={products} />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/catalog" element={<Catalog products={products} />} />
@@ -70,6 +71,7 @@ function App() {
             <Route path="/catalog/:prodId" element={<Details  />} />
             <Route path="/catalog/:prodId/edit" element={<EditProduct />} />
             <Route path="/about" element={<About  />} />
+            <Route path="/categories" element={<Categories  />} />
           </Routes>
 
           <Footer />
