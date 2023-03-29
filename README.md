@@ -10,6 +10,10 @@ Technologies
 ------------
 
 -   ReactJS
+-   JavaScript
+-   HTML
+-   CSS
+-   Node.js
 -   Firebase Authentication and Firestore
 -   Bootstrap
 
@@ -46,3 +50,10 @@ License
 -------
 
 This project is licensed under the MIT License. See the [LICENSE](https://github.com/Stams89/hand-drawn-wear/blob/main/LICENSE) file for more information.
+
+![image](https://user-images.githubusercontent.com/104592468/228508185-735906a2-8f36-49d7-9a91-aec3953884be.png)
+![image](https://user-images.githubusercontent.com/104592468/228508353-73e73f4a-92aa-40d5-bfa0-6a0fcbb426db.png)
+![image](https://user-images.githubusercontent.com/104592468/228508426-de78e65e-cfa5-4ccc-bea7-f189d4b7200e.png)
+![image](https://user-images.githubusercontent.com/104592468/228508022-518b9b6a-bede-4370-aaec-fcccccdcbcb8.png)
+![image](https://user-images.githubusercontent.com/104592468/228508125-dd29ac02-152d-4961-880b-8d398877e192.png)
+
