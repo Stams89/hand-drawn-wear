@@ -57,7 +57,7 @@ export const Login = () => {
                           id="email"
                           name="email"
                           className="form-control"
-                          style={{ width: 245, marginTop: '-2rem' }}
+                          style={{ width: 230, marginTop: '-2rem' }}
                         />
                         <label htmlFor="password" style={{ marginTop: '1rem' }}> Password</label>
                       </div>
@@ -68,7 +68,7 @@ export const Login = () => {
                           id="password"
                           name="password"
                           className="form-control"
-                          style={{ width: 385, marginTop: '-2rem' }}
+                          style={{ width: 400, marginTop: '-2rem' }}
                         />
                         <button
                           className="btn btn-primary15 btn-block fa-lg gradient-custom-2 mb-3"

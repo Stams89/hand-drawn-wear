@@ -38,7 +38,7 @@ console.log(products);
             >
               <div className="nav-item dropdown">
                 <a
-                  href="#"
+                  href=""
                   className="nav-link"
                   data-toggle="dropdown"
                   onClick={() => handleCategoryClick('mans')}
@@ -46,15 +46,15 @@ console.log(products);
                   Mans
                 </a>
                 <a
-                  href="#"
+                  href=""
                   className="nav-link"
                   data-toggle="dropdown"
-                  onClick={() => handleCategoryClick('womans')}
+                  onClick={() => handleCategoryClick('women')}
                 >
-                  Womans
+                  Women
                 </a>
                 <a
-                  href="#"
+                  href=""
                   className="nav-link"
                   data-toggle="dropdown"
                   onClick={() => handleCategoryClick('kids')}
@@ -69,10 +69,7 @@ console.log(products);
                 Shoes
               </a>
               <a href="" className="nav-item nav-link" onClick={() => handleCategoryClick('steps')}>
-                cloth for baby's first steps
-              </a>
-              <a href="" className="nav-item nav-link" onClick={() => handleCategoryClick('bread-cover')}>
-                Bread cover
+                Cloth for baby's first steps
               </a>
               <a href="" className="nav-item nav-link" onClick={() => handleCategoryClick('decoupage')}>
               Decoupage

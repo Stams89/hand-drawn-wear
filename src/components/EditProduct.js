@@ -74,6 +74,16 @@ export const EditProduct = () => {
             onChange={handleInputChange}
           />
         </div>
+        <div style={{ display: "flex", flexDirection: "column", textAlign: "center" }}>
+          <label htmlFor="price">Type:</label>
+          <input
+            type="text"
+            id="type"
+            name="type"
+            value={values.type}
+            onChange={handleInputChange}
+          />
+        </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <label htmlFor="description">Description:</label>
           <input

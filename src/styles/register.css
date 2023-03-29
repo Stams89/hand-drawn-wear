@@ -37,11 +37,13 @@ h1 {
 }
 
 input[type="text-info"],
-input[type="pass"] {
+input[name="password1"] ,
+input[name="password2"] {
   background: #f2f2f4;
   padding: 30px;
   padding-left: 20px;
   height: 50px;
+  width:250px;
   margin-top: 10px;
   font-size: 20px;
   border-radius: 40px;
@@ -50,7 +52,7 @@ border-radius: 50px;
 }
 
 input[type="text"]:focus,
-input[type="pass"]:focus {
+input[type="password1"]:focus {
   border-bottom: 2px solid #e39aee;
   color: #eaa9f6;
   transition: 0.2s ease;
