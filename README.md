@@ -52,7 +52,7 @@ License
 This project is licensed under the MIT License. See the [LICENSE](https://github.com/Stams89/hand-drawn-wear/blob/main/LICENSE) file for more information.
 
 ![image](https://user-images.githubusercontent.com/104592468/228508185-735906a2-8f36-49d7-9a91-aec3953884be.png)
-![image](https://user-images.githubusercontent.com/104592468/228508353-73e73f4a-92aa-40d5-bfa0-6a0fcbb426db.png)
+![333850147_5956276381093249_2880672791468208091_n](https://user-images.githubusercontent.com/104592468/228732459-a1a070a6-1996-4ccb-aac6-727ecfe01c54.png)
 ![image](https://user-images.githubusercontent.com/104592468/228665695-51dac616-f62c-4186-909d-bc7d5e090475.png)
 ![image](https://user-images.githubusercontent.com/104592468/228508022-518b9b6a-bede-4370-aaec-fcccccdcbcb8.png)
 ![image](https://user-images.githubusercontent.com/104592468/228665504-e71d5ce2-997c-43e2-94ac-196f594800dc.png)
