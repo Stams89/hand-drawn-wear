@@ -45,8 +45,8 @@ export const Register = () => {
           <h1>Register</h1>
           <input type="text-info" name="username" placeholder="Username" />
           <input type="text-info" name="email" placeholder="E-mail" />
-          <input type="password" name="password1" placeholder="Password" />
-          <input type="password" name="password2" placeholder="Repeat password" />
+          <input type="password" name="password" placeholder="Password" />
+          <input type="password" name="repass" placeholder="Repeat password" />
           <input type="submit" name="signup_submit" defaultValue="Sign me up" />
         </div>
         <div className="right">

@@ -37,8 +37,8 @@ h1 {
 }
 
 input[type="text-info"],
-input[name="password1"] ,
-input[name="password2"] {
+input[name="password"] ,
+input[name="repass"] {
   background: #f2f2f4;
   padding: 30px;
   padding-left: 20px;
