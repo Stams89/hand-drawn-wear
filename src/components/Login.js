@@ -66,7 +66,7 @@ export const Login = () => {
                         <input
                           type="password"
                           id="password"
-                          name="password"
+                          name="pass2"
                           className="form-control"
                           style={{ width: 400, marginTop: '-2rem' }}
                         />
