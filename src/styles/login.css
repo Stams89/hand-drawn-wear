@@ -93,3 +93,6 @@ input[type="password"] {
 label[for="password"] {
 	margin-bottom: -5rem;
 }
+.alert-danger {
+	margin-top: -5rem;
+  }

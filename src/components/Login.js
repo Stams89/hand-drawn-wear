@@ -24,7 +24,7 @@ export const Login = () => {
         navigate('/catalog');
       })
       .catch((error) => {
-        setErrorMessage(error.message);
+        setErrorMessage("Invalid email or password");
       });
   };
   return (
@@ -79,8 +79,8 @@ export const Login = () => {
                         </button>
                       </div>
                       <div className="d-flex align-items-center justify-content-center pb-4">
-                        {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
-                      </div>
+  {errorMessage && <div className="alert alert-danger" style={{ marginLeft: "-125px" }}>{errorMessage}</div>}
+</div>
                     </form>
                   </div>
                 </div>
