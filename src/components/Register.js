@@ -22,7 +22,7 @@ export const Register = () => {
     const repass = formData.get('repass');
 
     if (password !== repass) {
-     
+      setErrorMessage("Passwords do not match");
       return;
     }
     auth
@@ -34,7 +34,7 @@ export const Register = () => {
 ;
       })
       .catch((error) => {
-        setErrorMessage(error.message);
+        setErrorMessage("Invalid email or password");
       });
   }
   return (
