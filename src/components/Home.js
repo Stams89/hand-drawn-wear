@@ -41,9 +41,9 @@ console.log(products);
                   href=""
                   className="nav-link"
                   data-toggle="dropdown"
-                  onClick={() => handleCategoryClick('mans')}
+                  onClick={() => handleCategoryClick('men')}
                 >
-                  Mans
+                  Men
                 </a>
                 <a
                   href=""
