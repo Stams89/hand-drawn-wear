@@ -15,7 +15,7 @@ import { useState } from 'react';
 import { Logout } from './components/Logout';
 import { AddProduct } from './components/AddProduct';
 import { useEffect } from 'react';
-import { About } from './components/Contacts';
+import { About } from './components/About';
 import { Categories } from './components/Categories';
 
 import firebase from '../src/components/firebase';

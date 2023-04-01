@@ -90,10 +90,10 @@ console.log(products);
       
       <div id="header-carousel" className="carousel slide" data-ride="carousel">
         <div className="carousel-inner">
-          <div className="carousel-item active" style={{ height: 410 }}>
+          <div className="carousel-item active" style={{ height: 480, width:1100 }}>
             <img className="img-fluid" src="img/carousel-1.jpg" alt="Image" />
             <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
-              <div className="p-3" style={{ maxWidth: 700 }}>
+              <div className="p-3" style={{ maxWidth: 800 }}>
               </div>
             </div>
           </div>
