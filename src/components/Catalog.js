@@ -1,12 +1,57 @@
 import { CatalogItem } from "./CatalogItem";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import firebase from "../components/firebase";
+import "./firebase";
 
-export const Catalog = ({ products }) => {
+export const Catalog = () => {
+  const [catalog, setCatalog] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredProducts = products.filter((product) =>
+  const filteredCatalog = catalog.filter((product) =>
     product.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  useEffect(() => {
+    const db = firebase.firestore();
+
+    const fetchCatalog = async () => {
+      try {
+        const snapshot = await db.collection("Products").get();
+        const catalogData = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setCatalog(catalogData);
+        localStorage.setItem("catalog", JSON.stringify(catalogData));
+      } catch (error) {
+        console.log("Error fetching catalog:", error);
+      }
+    };
+
+    fetchCatalog();
+  }, []);
+
+  const handleDeleteClick = async (prodId) => {
+    const db = firebase.firestore();
+    try {
+      await db.collection("Products").doc(prodId).delete();
+      alert("Product deleted successfully!");
+
+      // Get the updated catalog from Firebase after deleting the product
+      const snapshot = await db.collection("Products").get();
+      const catalogData = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setCatalog(catalogData);
+
+      // Update the local storage version of the catalog
+      localStorage.setItem("catalog", JSON.stringify(catalogData));
+    } catch (error) {
+      console.log("Error deleting product:", error);
+      alert("Error deleting product. Please try again.");
+    }
+  };
 
   return (
     <div className="container-fluid pt-5">
@@ -31,11 +76,15 @@ export const Catalog = ({ products }) => {
         </div>
       </div>
       <div className="row px-xl-5 pb-3" style={{ marginBottom: "150px" }}>
-        {filteredProducts.length === 0 && (
+        {filteredCatalog.length === 0 && (
           <h3 className="no-articles">No products found</h3>
         )}
-        {filteredProducts.map((x) => (
-          <CatalogItem key={x.id} {...x} />
+        {filteredCatalog.map((product) => (
+          <CatalogItem
+            key={product.id}
+            {...product}
+            handleDeleteClick={handleDeleteClick}
+          />
         ))}
       </div>
     </div>
