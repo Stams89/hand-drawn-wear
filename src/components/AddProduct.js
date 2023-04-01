@@ -57,6 +57,8 @@ export const AddProduct = ({ onAddProductSubmit }) => {
             min={0.01}
             step={0.01}
             placeholder={0}
+            style={{ width: '230px' }} 
+           
           />
 
           <label htmlFor="type">Type:</label>

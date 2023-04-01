@@ -104,6 +104,9 @@
   box-shadow: inset 6px 6px 6px #cf1fea, inset -6px -6px 6px rgb(240, 179, 242);
 }
 
+#edit input[name="price"] {
+  margin-left: 110px;
+}
 
 input[type="text"],
 input[type="number"],

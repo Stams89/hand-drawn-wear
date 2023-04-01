@@ -19,6 +19,7 @@
   width: 100%;
 }
 
+
 #create label {
   margin-top: 10px;
   color: #2a0528;
@@ -58,6 +59,9 @@
   margin-right: 95px;
 }
 
+#create input[name="price"] {
+  margin-left: 110px;
+}
 
 
 #create label,
