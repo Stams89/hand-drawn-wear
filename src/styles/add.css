@@ -1,73 +1,4 @@
 #create-page,
-#edit-page {
-  position: relative;
-  width: 500px;
-  height: auto;
-  border-radius: 20px;
-  padding: 20px;
-  box-sizing: border-box;
-  text-align: center;
-  background: #242224;
-  box-shadow: 0px 0px 32px 0px #0f0112, -14px -14px 20px #191c21;
-  
-}
-
-input[type="text"] {
-  background: #f2f2f4;
-  padding: 30px;
-  padding-left: 20px;
-  height: 50px;
-  margin-top: 10px;
-  font-size: 24px;
-  border-radius: 40px;
-  box-shadow: inset 6px 6px 6px #cf1fea, inset -6px -6px 6px rgb(240, 179, 242);
-border-radius: 50px;
-}
-input[type="number"] {
-  background: #f2f2f4;
-  padding: 30px;
-  padding-left: 20px;
-  height: 50px;
-  margin-top: 10px;
-  font-size: 24px;
-  border-radius: 40px;
-  box-shadow: inset 6px 6px 6px #cf1fea, inset -6px -6px 6px rgb(240, 179, 242);
-border-radius: 50px;
-}
-
-textarea {
-  width: 100%;
-  min-width: 20vw;
-  min-height: 7em;
-  border: 2px solid #8f0f93;
-  border-radius: 1em;
-  font-size: 26px;
-  border-bottom-color: #2a0528;
-  background-color: #f1f3f7;
-  border-right-color: #eef1f4;
-  margin-top: 7px;
-  color: rgb(238, 226, 226);
-  box-shadow: inset 6px 6px 6px #b635cd, inset -6px -6px 6px rgb(235, 143, 235);
-
-}
-
-#add {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50vh;
-}
-
-#details {
-  width: 100%;
-  /* add width property */
-}
-
-.submit {
-  border-radius: 40px;
-}
-
-
 #create-page,
 #edit-page {
   position: relative;
@@ -80,11 +11,6 @@ textarea {
   background: #f3eded;
   box-shadow: 0px 0px 32px 0px #ab2fc7, -14px -14px 20px #191c21;
   margin: 0 auto;
-  /* add this line */
-}
-
-#create-page {
-  margin-top: 50px;
 }
 
 #create label,
@@ -95,10 +21,12 @@ textarea {
 
 #create label {
   margin-top: 10px;
+  color: #2a0528;
 }
 
 #create input[type="text"],
-#create input[type="number"] {
+#create input[type="number"]
+ {
   background: #f4f2f8;
   padding: 30px;
   padding-left: 20px;
@@ -107,20 +35,42 @@ textarea {
   border-radius: 40px;
   box-shadow: inset 6px 6px 6px #cf1fea, inset -6px -6px 6px rgb(240, 179, 242);
   margin-top: 10px;
+  width: 100%;
 }
 
-#create-page {
-  margin-top: 50px;
+#type {
+  font-size: 24px;
+  padding: 30px;
+  border-radius: 40px;
+  border: none;
+  width: 250px;
+  height: 80px;
+  box-shadow: inset 6px 6px 6px #cf1fea, inset -6px -6px 6px rgb(240, 179, 242);
+}
+
+#type {
+  font-size: 25px;
+  padding: 10px;
+  border-radius: 50px;
+  border: 1px solid #d694c2;
+  box-shadow: inset 6px 6px 6px #cf1fea, inset -6px -6px 6px rgb(240, 179, 242);
+}
+
+
+#create label,
+#create input[type="number"] {
+  display: block;
+  width: 100%;
 }
 
 #create label {
   margin-top: 10px;
   color: #2a0528;
-  /* change label color */
 }
 
 #create input[type="text"],
-#create input[type="number"] {
+#create input[type="number"]
+ {
   background: #f4f2f8;
   padding: 30px;
   padding-left: 20px;
@@ -130,10 +80,22 @@ textarea {
   box-shadow: inset 6px 6px 6px #cf1fea, inset -6px -6px 6px rgb(240, 179, 242);
   margin-top: 10px;
   width: 100%;
-  /* add width property */
 }
 
-#details {
-  width: 100%;
-  /* add width property */
+#type {
+  font-size: 24px;
+  padding: 30px;
+  border-radius: 40px;
+  border: none;
+  width: 250px;
+  height: 80px;
+  box-shadow: inset 6px 6px 6px #cf1fea, inset -6px -6px 6px rgb(240, 179, 242);
+}
+
+#type {
+  font-size: 25px;
+  padding: 10px;
+  border-radius: 50px;
+  border: 1px solid #d694c2;
+  box-shadow: inset 6px 6px 6px #cf1fea, inset -6px -6px 6px rgb(240, 179, 242);
 }
