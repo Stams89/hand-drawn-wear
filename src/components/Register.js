@@ -26,16 +26,17 @@ export const Register = () => {
       return;
     }
     auth
-      .createUserWithEmailAndPassword(email, password)
-      .then(userCredential => {
-        const { user } = userCredential;
-        register(user);
-        navigate('/catalog');
-;
-      })
-      .catch((error) => {
-        setErrorMessage("Invalid email or password");
-      });
+    .createUserWithEmailAndPassword(email, password)
+    .then(userCredential => {
+      const { user } = userCredential;
+      localStorage.setItem('username', name);
+      register(user);
+      navigate('/catalog');
+    })
+    .catch((error) => {
+      setErrorMessage("Invalid email or password");
+    });
+  
   }
   return (
     <section id="register-page" className="content auth">

@@ -7,7 +7,7 @@ export const Home = ({
 }) => {
 console.log(products);
   const navigate = useNavigate();
-
+const username = localStorage.getItem('username');
   const handleCategoryClick = (type) => {
     const filteredProducts = products.filter((product) => product.type === type);
     navigate('/categories', { state: { products: filteredProducts } });
