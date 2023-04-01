@@ -63,16 +63,17 @@ export const EditProduct = () => {
             />
           </div>
           <div style={{ display: "flex", flexDirection: "column", textAlign: "center" }}>
-            <label htmlFor="price">Price:</label>
-            <input
-              type="number"
-              id="price"
-              name="price"
-              min={1}
-              value={values.price}
-              style={{ width: "100" }}
-              onChange={handleInputChange}
-            />
+          <label htmlFor="price">Price:</label>
+          <input 
+            value={values.price}
+            onChange={handleInputChange}
+            type="number"
+            id="price"
+            name="price"
+            min={0.01}
+            step={0.01}
+            placeholder={0}
+          />
             <label htmlFor="type">Type:</label>
             <select
               value={values.type}

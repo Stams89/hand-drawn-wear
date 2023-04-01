@@ -48,17 +48,19 @@ export const AddProduct = ({ onAddProductSubmit }) => {
             placeholder="Enter product details..."
           />
           <label htmlFor="price">Price:</label>
-          <input 
+          <input
             value={values.price}
             onChange={onChangeHandler}
             type="number"
             id="price"
             name="price"
-            min={1}
-            placeholder={1}
+            min={0.01}
+            step={0.01}
+            placeholder={0}
           />
+
           <label htmlFor="type">Type:</label>
-          <select 
+          <select
             value={values.type}
             onChange={onChangeHandler}
             id="type"
@@ -76,7 +78,7 @@ export const AddProduct = ({ onAddProductSubmit }) => {
             <option value="milestone">Milestone</option>
           </select>
           <label htmlFor="game-img">Image:</label>
-          <input 
+          <input
             value={values.img}
             onChange={onChangeHandler}
             type="text"
