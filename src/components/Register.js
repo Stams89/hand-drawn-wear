@@ -1,8 +1,6 @@
 import '../styles/register.css';
 
 
-import '../styles/register.css';
-
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -14,6 +12,8 @@ export const Register = () => {
   const { register } = useContext(AuthContext);
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState(null)
+
+
   const onSubmit = async (e) => { // make the onSubmit handler async
     e.preventDefault();
 
@@ -24,10 +24,35 @@ export const Register = () => {
     const password = formData.get('password');
     const repass = formData.get('repass');
 
+    // Check if the email is valid using a regular expression
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setErrorMessage("Invalid email address");
+      return;
+    }
     if (password !== repass) {
       setErrorMessage("Passwords do not match");
       return;
     }
+    if (password.length < 6) {
+      setErrorMessage("Password must be at least 6 characters long");
+      return;
+    }
+
+    const emailExists = await auth.fetchSignInMethodsForEmail(email);
+    if (emailExists.length !== 0) {
+      setErrorMessage("Email already exists");
+      return;
+    }
+
+
+
+
+    if (!emailRegex.test(email)) {
+      setErrorMessage("Please enter a valid email address");
+      return;
+    }
+
 
     try {
       await auth.createUserWithEmailAndPassword(email, password);
