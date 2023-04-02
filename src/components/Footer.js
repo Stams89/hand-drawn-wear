@@ -1,7 +1,8 @@
 export const Footer = () => {
-    return (
 
-      <div className="container-fluid bg-secondary text-dark mt-5 pt-5">
+  return (
+
+    <div className="container-fluid bg-secondary text-dark mt-5 pt-5">
       <div className="row px-xl-5 pt-5">
         <div className="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
           <a href="" className="text-decoration-none">
@@ -95,5 +96,5 @@ export const Footer = () => {
         </div>
       </div>
     </div>
-    )
+  )
 }

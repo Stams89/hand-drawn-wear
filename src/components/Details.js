@@ -1,11 +1,11 @@
 import '../styles/details.css';
 
 import { useState, useEffect, useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
+
 import firebase from '../../src/components/firebase';
 import { AuthContext } from '../services/contexts/AuthContext';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+
 
 export function Details() {
   const { currentUser } = useContext(AuthContext);
@@ -67,7 +67,7 @@ export function Details() {
     try {
       await db.collection('Products').doc(prodId).delete();
       alert('Product deleted successfully!');
-  
+
       // Get the updated catalog from Firebase after deleting the product
       const snapshot = await db.collection('Products').get();
       const catalogData = snapshot.docs.map((doc) => ({
@@ -75,18 +75,18 @@ export function Details() {
         ...doc.data(),
       }));
       setCatalog(catalogData);
-  
+
       // Update the local storage version of the catalog
       localStorage.setItem('catalog', JSON.stringify(catalogData));
-  
+
       navigate('/catalog', { replace: true });
     } catch (error) {
       console.log('Error deleting product:', error);
       alert('Error deleting product. Please try again.');
     }
   };
-  
-   
+
+
   return (
     <div className="container my-5">
       <div className="card details-card p-0">

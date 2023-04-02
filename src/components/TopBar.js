@@ -1,6 +1,7 @@
 export const TopBar = () => {
+
   return (
-      <div className="container-fluid">
+    <div className="container-fluid">
       <div className="row bg-secondary py-2 px-xl-5">
         <div className="col-lg-6 d-none d-lg-block">
           <div className="d-inline-flex align-items-center">
@@ -40,7 +41,7 @@ export const TopBar = () => {
       <div className="row align-items-center py-3 px-xl-5">
         <div className="col-lg-3 d-none d-lg-block">
           <a href="" className="text-decoration-none">
-            <h1 className="m-0 display-5 font-weight-semi-bold"  style={{ fontFamily: "Skript" }}>
+            <h1 className="m-0 display-5 font-weight-semi-bold" style={{ fontFamily: "Skript" }}>
               Stamsy Art
             </h1>
           </a>

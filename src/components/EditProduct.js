@@ -2,6 +2,7 @@ import '../styles/edit.css';
 
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+
 import firebase from '../../src/components/firebase';
 
 export const EditProduct = () => {
@@ -48,7 +49,7 @@ export const EditProduct = () => {
   };
 
   return (
-    <section id="edit-page" className="auth">
+    <section id="edit-page" className="auth" style={{ marginTop: "40px" }}>
       <form id="edit" onSubmit={handleSubmit}>
         <div className="container" style={{ marginTop: "50px" }}>
           <h1>Edit Product</h1>

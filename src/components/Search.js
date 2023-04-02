@@ -1,4 +1,3 @@
-import { useState } from 'react';
 
 export const FilteredProducts = ({ products, searchQuery }) => {
   const filteredProducts = products.filter(product => product.name.toLowerCase().includes(searchQuery.toLowerCase()));

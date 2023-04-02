@@ -1,4 +1,5 @@
 import { useLocation } from 'react-router-dom';
+
 import { CatalogItem } from './CatalogItem';
 
 export const Categories = () => {

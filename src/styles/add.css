@@ -39,6 +39,8 @@
   width: 100%;
 }
 
+
+
 #type {
   font-size: 24px;
   padding: 30px;
@@ -73,6 +75,9 @@
 #create label {
   margin-top: 10px;
   color: #2a0528;
+}
+#create-page {
+  margin-top: 50px;
 }
 
 #create input[type="text"],

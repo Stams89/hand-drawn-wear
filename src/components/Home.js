@@ -1,18 +1,18 @@
 import { useNavigate } from 'react-router-dom';
-import "./firebase";
 
+import "./firebase";
 
 export const Home = ({
   products
 }) => {
-console.log(products);
+  console.log(products);
   const navigate = useNavigate();
-const username = localStorage.getItem('username');
+  const username = localStorage.getItem('username');
   const handleCategoryClick = (type) => {
     const filteredProducts = products.filter((product) => product.type === type);
     navigate('/categories', { state: { products: filteredProducts } });
     console.log(filteredProducts);
-  
+
   };
 
   return (
@@ -71,7 +71,7 @@ const username = localStorage.getItem('username');
                 Cloth for baby's first steps
               </a>
               <a href="" className="nav-item nav-link" onClick={() => handleCategoryClick('decoupage')}>
-              Decoupage
+                Decoupage
               </a>
               <a href="" className="nav-item nav-link" onClick={() => handleCategoryClick('ceramic')}>
                 Ceramic
@@ -80,40 +80,40 @@ const username = localStorage.getItem('username');
                 Family clothes
               </a>
               <a href="" className="nav-item nav-link" onClick={() => handleCategoryClick('milestone')}>
-              Milestone
-          </a>
+                Milestone
+              </a>
+            </div>
+          </nav>
         </div>
-      </nav>
-    </div>
-    <div className="col-lg-9">
-      
-      <div id="header-carousel" className="carousel slide" data-ride="carousel">
-        <div className="carousel-inner">
-          <div className="carousel-item active" style={{ height: 480, width:1100 }}>
-            <img className="img-fluid" src="img/carousel-1.jpg" alt="Image" />
-            <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
-              <div className="p-3" style={{ maxWidth: 800 }}>
+        <div className="col-lg-9">
+
+          <div id="header-carousel" className="carousel slide" data-ride="carousel">
+            <div className="carousel-inner">
+              <div className="carousel-item active" style={{ height: 480, width: 1100 }}>
+                <img className="img-fluid" src="img/carousel-1.jpg" alt="Image" />
+                <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                  <div className="p-3" style={{ maxWidth: 800 }}>
+                  </div>
+                </div>
+              </div>
+              <div className="carousel-item" style={{ height: 410 }}>
+                <img className="img-fluid" src="img/carousel-2.jpg" alt="Image" />
+                <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                  <div className="p-3" style={{ maxWidth: 700 }}>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="carousel-item" style={{ height: 410 }}>
-            <img className="img-fluid" src="img/carousel-2.jpg" alt="Image" />
-            <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
-              <div className="p-3" style={{ maxWidth: 700 }}>
-              </div>
-            </div>
+            <a
+              className="carousel-control-prev"
+              href="#header-carousel"
+              data-slide="prev"
+            >
+            </a>
           </div>
         </div>
-        <a
-          className="carousel-control-prev"
-          href="#header-carousel"
-          data-slide="prev"
-        >
-        </a>
       </div>
     </div>
-  </div>
-</div>
 
-    )
+  )
 }

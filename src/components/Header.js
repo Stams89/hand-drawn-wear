@@ -26,7 +26,7 @@ export const Header = () => {
                 id="navbarCollapse"
             >
                 <div className="navbar-nav ml-auto py-0" >
-                {user && user.email && <span style={{ marginRight: "30px" }}>{username}</span>}
+                {user && user.email && <span style={{ marginRight: "30px" }}>{username || user.email}</span>}
 
                     <Link to="/" style={{ marginRight: "30px" }}>Home </Link>
                     <Link to="/about" style={{ marginRight: "30px" }}>About</Link>

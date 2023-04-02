@@ -5,7 +5,7 @@ import { AuthProvider } from '../src/services/contexts/AuthContext';
 import { Catalog } from "./components/Catalog";
 import { Footer } from "./components/Footer";
 import { TopBar } from "./components/TopBar";
-import {Details} from './components/Details';
+import { Details } from './components/Details';
 import { Header } from "./components/Header";
 import { Home } from './components/Home';
 import { Login } from './components/Login';
@@ -27,7 +27,7 @@ function App() {
   const navigate = useNavigate();
 
   const [products, setProducts] = useState([]);
- 
+
   useEffect(() => {
     const db = firebase.firestore();
     db.collection("Products")
@@ -40,7 +40,7 @@ function App() {
         setProducts(data);
       });
   }, []);
- 
+
 
   const userLogin = (authData) => {
     setAuth(authData)
@@ -67,11 +67,11 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/catalog" element={<Catalog products={products} />} />
             <Route path="/logout" element={<Logout />} />
-            <Route path="/add" element={<AddProduct onAddProductSubmit={onAddProductSubmit}/>} />
-            <Route path="/catalog/:prodId" element={<Details  />} />
+            <Route path="/add" element={<AddProduct onAddProductSubmit={onAddProductSubmit} />} />
+            <Route path="/catalog/:prodId" element={<Details />} />
             <Route path="/catalog/:prodId/edit" element={<EditProduct />} />
-            <Route path="/about" element={<About  />} />
-            <Route path="/categories" element={<Categories  />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/categories" element={<Categories />} />
           </Routes>
 
           <Footer />
