@@ -24,6 +24,12 @@ export const Register = () => {
     const password = formData.get('password');
     const repass = formData.get('repass');
 
+
+    // Check if the username is not empty
+    if (!name) {
+      setErrorMessage("Please enter a username");
+      return;
+    }
     // Check if the email is valid using a regular expression
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
