@@ -5,7 +5,7 @@ import "./firebase";
 export const Home = ({
   products
 }) => {
-  console.log(products);
+  // console.log(products);
   const navigate = useNavigate();
   const username = localStorage.getItem('username');
   const handleCategoryClick = (type) => {
