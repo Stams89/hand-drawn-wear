@@ -9579,6 +9579,12 @@ a.text-dark:hover, a.text-dark:focus {
   z-index: 11;
   animation: action 1s infinite alternate;
 }
+@media screen and (max-width: 600px) {
+  #myElement {
+    font-size: 10px;
+  }
+}
+
 
 @keyframes action {
   0% {

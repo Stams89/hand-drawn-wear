@@ -17,6 +17,7 @@ import { AddProduct } from './components/AddProduct';
 import { useEffect } from 'react';
 import { About } from './components/About';
 import { Categories } from './components/Categories';
+import { NotFound } from './components/NotFound';
 
 import firebase from '../src/components/firebase';
 import "../src/components/firebase";
@@ -72,6 +73,7 @@ function App() {
             <Route path="/catalog/:prodId/edit" element={<EditProduct />} />
             <Route path="/about" element={<About />} />
             <Route path="/categories" element={<Categories />} />
+            <Route path="*" element={<NotFound/>}/>
           </Routes>
 
           <Footer />
