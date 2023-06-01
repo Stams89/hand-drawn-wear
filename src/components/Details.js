@@ -15,11 +15,6 @@ export function Details() {
   const [catalog, setCatalog] = useState(
     JSON.parse(localStorage.getItem('catalog')) || []
   );
-  const [cart, setCart] = useState(
-    JSON.parse(localStorage.getItem('cart')) || []
-  );
-  const [quantity, setQuantity] = useState(1);
-  const [size, setSize] = useState('');
 
   const navigate = useNavigate();
 
@@ -32,6 +27,7 @@ export function Details() {
 
         if (doc.exists) {
           const productData = { id: doc.id, ...doc.data() };
+          localStorage.setItem('product', JSON.stringify(productData));
           setProduct(productData);
         } else {
           console.log('No such document!');
@@ -90,26 +86,7 @@ export function Details() {
     }
   };
 
-  const handleAddToCartClick = () => {
-    const productToAdd = {
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      quantity,
-      size,
-    };
 
-    setCart([...cart, productToAdd]);
-    localStorage.setItem('cart', JSON.stringify([...cart, productToAdd]));
-
-    alert('Product added to cart successfully!');
-  };
-  const handleQuantityChange = (change) => {
-    const newQuantity = quantity + change;
-    if (newQuantity >= 1 && newQuantity <= 10) {
-      setQuantity(newQuantity);
-    }
-  };
   return (
     <div className="container my-5">
       <div className="card details-card p-0">
@@ -127,96 +104,67 @@ export function Details() {
               <p className="product-category mb-0"></p>
               <h3>{product.name}</h3>
               <hr />
-              <div className="details-row">
-                <p className="product-price">${product.price}</p>
-                <select
-                  className="form-select"
-                  name="size"
-                  id="size"
-                  value={size}
-                  onChange={(event) => setSize(event.target.value)}
-                >
-                  <option value="">Изберете размер</option>
-                  <option value="S">S</option>
-                  <option value="M">M</option>
-                  <option value="L">L</option>
-                  <option value="XL">XL</option>
-                </select>
-              </div>
-              <div className="add-inputs">
-                <div className="input-group mb-3">
-                  <button
-                    className="btn btn-outline-secondary"
-                    type="button"
-                    onClick={() => handleQuantityChange(-1)}
-                  >
-                    -
-                  </button>
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Quantity"
-                    aria-label="Quantity"
-                    value={quantity}
-                    onChange={(event) =>
-                      setQuantity(parseInt(event.target.value))
-                    }
-                  />
-                  <button
-                    className="btn btn-outline-secondary"
-                    type="button"
-                    onClick={() => handleQuantityChange(1)}
-                  >
-                    +
-                  </button>
-                </div>
-                <button
-                  type="button"
-                  className="btn btn-primary"
-                  onClick={handleAddToCartClick}
-                >
-                  Add to Cart
-                </button>
-              </div>
-              {product.owner === userId && (
-                <div className="buttons d-flex">
-                  <button
-                    type="button"
-                    className="btn btn-primary btn-lg flex-grow-1 mx-2"
-                    style={{
-                      backgroundColor: "rgb(195, 119, 222);",
-                      borderColor: "#f0ad4e",
-                    }}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    name="delete_product"
-                    type="button"
-                    className="btn btn-primary btn-lg flex-grow-1 mx-2"
-                    onClick={handleDeleteClick}
-                    style={{
-                      backgroundColor: "#rgb(195, 119, 222)",
-                      borderColor: "#d9534f",
-                    }}
-                  >
-                    Delete
-                  </button>
-                </div>
-              )}
+              <p className="product-price">${product.price}</p>
+              <form className="add-inputs" method="post">
+                {/* <input
+                  type="number"
+                  className="form-control"
+                  id="cart_quantity"
+                  name="cart_quantity"
+                  defaultValue={1}
+                  min={1}
+                  max={10}
+                /> */}
+                {product.owner === userId && (
+                  <div className="buttons d-flex">
+                    <Link to={`/catalog/${prodId}/edit`} className="btn btn-primary btn-lg flex-grow-1 mx-2" style={{ backgroundColor: "rgb(195, 119, 222);", borderColor: "#f0ad4e" }}>Edit</Link>
+                    <button
+                      name="delete_product"
+                      type="button"
+                      className="btn btn-primary btn-lg flex-grow-1 mx-2"
+                      onClick={handleDeleteClick}
+                      style={{ backgroundColor: "#rgb(195, 119, 222)", borderColor: "#d9534f" }}
+                    >
+                      Delete
+                    </button>
+                  </div>
+
+                )}
+              </form>
+              <form className="add-inputs" method="post">
+              </form>
               <div style={{ clear: "both" }} />
               <hr />
               <p className="product">About this product</p>
-              <p className="product-description" mb="0">
-                {product.description}
-              </p>
+              <p className="product-description" mb="0">{product.description}</p>
               <hr />
             </div>
           </div>
         </div>
+        {/* End row */}
       </div>
+      {/* <form>
+        <div className="form-group" onSubmit={addCommentHandler}>
+          <label htmlFor="comments" style={{ fontSize: "24px" }}>Comments</label>
+          <input
+            type=""
+            name="username"
+            placeholder=''
+            onChange={onChange}
+            value={comment.username}
+          />
+          <textarea
+            className="form-control"
+            id="comments"
+            rows="6"
+            name="comment"
+            placeholder='Comment......'
+            onChange={onChange}
+            value={comment.comment}
+          />
+        </div>
+        <button type="submit" className="btn btn-primary">Submit</button>
+      </form> */}
     </div>
   );
-  
-  
 };

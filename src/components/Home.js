@@ -97,6 +97,11 @@ export const Home = ({
                 </div>
               </div>
               <div className="carousel-item" style={{ height: 410 }}>
+                <img className="img-fluid" src="img/carousel-2.jpg" alt="Image" />
+                <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                  <div className="p-3" style={{ maxWidth: 700 }}>
+                  </div>
+                </div>
               </div>
             </div>
             <a
