@@ -1,7 +1,6 @@
-import { createContext, useState, useEffect } from "react";
-import { firebaseConfig } from "../../components/firebase"
+import { createContext, useState, useEffect, useContext } from "react";
+import { firebaseConfig } from "../../components/firebase";
 import firebase from "../../components/firebase";
-import "../../components/firebase";
 
 firebase.initializeApp(firebaseConfig);
 
@@ -31,9 +30,9 @@ export const AuthProvider = ({ children }) => {
     try {
       await firebase.auth().createUserWithEmailAndPassword(email, password);
       const currentUser = firebase.auth().currentUser;
-    
+
       await currentUser.updateProfile({
-        displayName: username
+        displayName: username,
       });
       setCurrentUser(currentUser); // set currentUser state to current user
     } catch (error) {
@@ -61,8 +60,16 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, currentUser, register, login, logout }}>
+    <AuthContext.Provider
+      value={{ user, currentUser, register, login, logout }}
+    >
       {children}
     </AuthContext.Provider>
   );
+};
+
+export const useAuthContext = () => {
+  const context = useContext(AuthContext);
+
+  return context;
 };

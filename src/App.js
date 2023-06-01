@@ -18,6 +18,7 @@ import { useEffect } from 'react';
 import { About } from './components/About';
 import { Categories } from './components/Categories';
 import { NotFound } from './components/NotFound';
+import { ProtectedRoute } from './components/Guards/ProtectedRoute';
 
 import firebase from '../src/components/firebase';
 import "../src/components/firebase";
@@ -55,7 +56,7 @@ function App() {
     navigate("/catalog");
     // perform any additional actions here, such as displaying a success message or redirecting the user
   };
-
+//TODO protected route
   return (
     <AuthProvider value={{ user: auth, userLogin }}>
       <div >
@@ -68,7 +69,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/catalog" element={<Catalog products={products} />} />
             <Route path="/logout" element={<Logout />} />
-            <Route path="/add" element={<AddProduct onAddProductSubmit={onAddProductSubmit} />} />
+            <Route path="/add" element={<ProtectedRoute><AddProduct onAddProductSubmit={onAddProductSubmit} /></ProtectedRoute>} />
             <Route path="/catalog/:prodId" element={<Details />} />
             <Route path="/catalog/:prodId/edit" element={<EditProduct />} />
             <Route path="/about" element={<About />} />

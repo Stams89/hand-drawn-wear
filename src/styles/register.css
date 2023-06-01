@@ -1,5 +1,4 @@
 
-
 body {
   margin: 0;
   padding: 0;
@@ -47,14 +46,14 @@ input[name="repass"] {
   margin-top: 10px;
   font-size: 20px;
   border-radius: 40px;
-  box-shadow: inset 6px 6px 6px #e198f4, inset -6px -6px 6px rgb(240, 179, 242);
+  box-shadow: inset 6px 6px 6px #f498d4, inset -6px -6px 6px rgb(240, 179, 242);
 border-radius: 50px;
 }
 
 input[type="text"]:focus,
 input[type="password1"]:focus {
   border-bottom: 2px solid #e39aee;
-  color: #eaa9f6;
+  color: #f292c5;
   transition: 0.2s ease;
 }
 
@@ -62,7 +61,7 @@ input[type="submit"] {
   margin-top: 58px;
   width: 220px;
   height: 82px;
-  background: #d50ece;
+  background: #bb1db5;
   border: none;
   border-radius: 50px;
   color: #FFF;
