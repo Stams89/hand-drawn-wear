@@ -125,6 +125,9 @@ scss/bootstrap/scss/vendor/_rfs.scss,1678977656053,d1bcfe67f472af142a1c9c10183ca
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 0346fba (Revert "add protected route")
 asset-manifest.json,1681275928978,3c30d0e6fee16d9680752eb6a4af412712c9efedd87696910e25bd898deeb52e
 index.html,1681275928978,a53d92966fb4b26eeeaec1ca6aca2d8b46d247f1e4498f01ee8aefe9783786fe
 static/js/787.e3e47d2e.chunk.js,1681275928989,4f1d96af3a1105e4975570ebbeda676b558abf55525fd1b84510685d0d72ee4f
@@ -135,8 +138,11 @@ static/css/main.55d6b6e6.css,1681275928988,16a6e0ef7899371243f8fc0aaba2322f181fe
 static/js/main.a2036848.js,1681275928989,02b30dc6be1738de0d0f6af936071882b799f3b3fe495fec92634482a27c3616
 static/js/main.a2036848.js.map,1681275928992,68e0da26d4c647b66148ce58bf5d5f36eb2ce13d224cc9aeb791cabf9dbfe08a
 =======
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 425897e (add protected route)
+=======
+>>>>>>> 0346fba (Revert "add protected route")
 asset-manifest.json,1680904178267,c8fcd1c92400d2665bf5bcc65e26ee379fb10852fb58b336fe3d1c928d1ffce4
 index.html,1680904178267,c112467488ebc8c8445e0be9f19e90aaf82453944c3154ed1d958cdce962c72f
 static/css/main.277cc7dd.css,1680904178279,805f6438c35e4abc1b92775fbcd54bf1251fceee2e39a7213f2eee7d7cfa10f3
@@ -147,6 +153,7 @@ static/js/main.294127d6.js.LICENSE.txt,1680904178283,603003585d96806b2feedaa2805
 css/style.css,1680904136420,a49b3bafee430982af2458eab02931655c1b38405b360c3483897cb0f0493630
 static/js/main.294127d6.js,1680904178284,1106ca14bee2ee6b122a044e23125daa7ea0c656c32ac3007639dd7f9004306d
 static/js/main.294127d6.js.map,1680904178279,0a966ec18bb997ce8d9a5aea4b0467f6a56fef41ea68e2651236545ec899b8ca
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> parent of 425897e (add protected route)
 =======
@@ -161,4 +168,6 @@ static/js/main.06711ec7.js,1680968193547,34348b48d2a1b3e8b8da4cbd701fa79ff385824
 static/js/main.06711ec7.js.map,1680968193549,4f9b3c0694c704b5f55986e74021f2a1d61b95c45df1794556d4eb684c290817
 >>>>>>> parent of e84181d (protectedRoute)
 =======
+=======
+>>>>>>> 0346fba (Revert "add protected route")
 >>>>>>> parent of 425897e (add protected route)
