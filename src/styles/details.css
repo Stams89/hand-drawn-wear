@@ -6,7 +6,12 @@
     width: 80%;
     margin: auto;
 }
-
+input#cart_quantity {
+    width: 10px;
+    max-width: 50px;
+  }
+  
+  
 
 .description-container {
     position: relative;
