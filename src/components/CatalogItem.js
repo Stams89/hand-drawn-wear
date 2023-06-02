@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export const CatalogItem = ({
@@ -8,29 +7,6 @@ export const CatalogItem = ({
   price,
   type,
 }) => {
-  const [numLikes, setNumLikes] = useState(0);
-  const [liked, setLiked] = useState(false);
-
-  useEffect(() => {
-    const storedLikes = localStorage.getItem(`likes_${id}`);
-    if (storedLikes) {
-      setNumLikes(parseInt(storedLikes));
-    }
-    const likedProducts = JSON.parse(localStorage.getItem("likedProducts") || "[]");
-    setLiked(likedProducts.includes(id));
-  }, [id]);
-
-  const handleLikeClick = () => {
-    const likedProducts = JSON.parse(localStorage.getItem("likedProducts") || "[]");
-    if (!likedProducts.includes(id)) {
-      const newLikes = numLikes + 1;
-      setNumLikes(newLikes);
-      localStorage.setItem(`likes_${id}`, newLikes.toString());
-      localStorage.setItem("likedProducts", JSON.stringify([...likedProducts, id]));
-      setLiked(true);
-    }
-  };
-
   return (
     <div className="card product-item border-0" style={{ height: "400px", width: "250px", marginBottom: "50px",  marginRight: "2%",}}>
       <div className="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
@@ -48,10 +24,7 @@ export const CatalogItem = ({
           View Detail
         </Link>
         <div>
-          <button className={`btn btn-link ${liked ? "text-danger" : ""}`} onClick={handleLikeClick}>
-            <i className={`fas fa-heart mr-1 ${liked ? "text-danger" : ""}`} />
-            {numLikes}
-          </button>
+          <i className="fas fa-shopping-cart" />
         </div>
       </div>
     </div>
