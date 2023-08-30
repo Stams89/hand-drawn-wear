@@ -2,21 +2,28 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 
+// Retrieve environment variables from .env.local
+const apiKey = process.env.REACT_APP_API_KEY;
+const authDomain = process.env.REACT_APP_AUTH_DOMAIN;
+const projectId = process.env.REACT_APP_PROJECT_ID;
+const storageBucket = process.env.REACT_APP_STORAGE_BUCKET;
+const messagingSenderId = process.env.REACT_APP_MESSAGING_SENDER_ID;
+const appId = process.env.REACT_APP_APP_ID;
+const measurementId = process.env.REACT_APP_MEASUREMENT_ID;
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA48SYUt771pMRNTa4rULjm7glCSKabEbc",
-  authDomain: "hand-drawn-wear.firebaseapp.com",
-  projectId: "hand-drawn-wear",
-  storageBucket: "hand-drawn-wear.appspot.com",
-  messagingSenderId: "45927993869",
-  appId: "1:45927993869:web:fe154bcc954e76c82c3b44",
-  measurementId: "G-2WQ9VGZ28R"
+  apiKey,
+  authDomain,
+  projectId,
+  storageBucket,
+  messagingSenderId,
+  appId,
+  measurementId,
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 const db = firebaseApp.firestore();
-
 const auth = firebase.auth();
 
 export { db, auth, firebaseConfig };
