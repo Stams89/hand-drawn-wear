@@ -1,82 +1,50 @@
-* {
-    box-sizing: border-box;
+/* Styles for the "Choose Size" field and the Quantity input field */
+.form-select,
+.quantity-input {
+  width: 150px; /* Adjust width according to your preference */
+  padding: 8px; /* Smaller field height */
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+  color: #333;
+  appearance: none; /* Hides the browser's default arrow */
+  cursor: pointer;
+  outline: none; /* Removes outlines when focused */
+  vertical-align: middle;
+  margin-right: 10px;
+  margin-bottom: 2px;
 }
 
-.details-card {
-    width: 80%;
-    margin: auto;
-}
-input#cart_quantity {
-    width: 10px;
-    max-width: 50px;
-  }
-  
-  
-
-.description-container {
-    position: relative;
-    /* height: 900px; */
+/* Styles for the arrow in the "Choose Size" field */
+.select-arrow {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 12px; /* Adjust arrow size */
 }
 
-.main-description1 {
-    position: absolute;
-    top: 45%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+/* Styles for the quantity buttons */
+.quantity-button {
+  border-radius: 0;
+  display: inline-block;
+  vertical-align: middle;
 }
 
-.main-description h3 {
-    font-size: 2rem;
+/* Style for the input field for quantity */
+.quantity-input {
+  width: 40px; /* You can adjust the width as needed */
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+  color: #333;
+  appearance: none;
+  outline: none;
+  vertical-align: middle;
+  margin-right: 300px; /* Adjust this margin as needed */
+  margin-bottom: 2px;
 }
-
-.add-inputs,
-.add-inputs input {
-    float: left;
-    margin-right: 10px;
-    margin-bottom: 2px;
-}
-
-.add-inputs button {
-    border-radius: 0;
-}
-
-.add-inputs input {
-    height: 48px;
-    width: 65px;
-    border-radius: 0;
-}
-
-
-.product-title {
-    font-size: 1.1rem;
-    font-weight: bold;
-}
-
-.product-price {
-    font-size: 1.8rem;
-}
-
-.social-list {
-    padding: 0;
-    list-style: none;
-}
-
-.social-list li {
-    float: left;
-    padding: 6px 8px;
-    margin-right: 12px;
-}
-
-.social-list li a {
-    color: black;
-    font-size: 2rem;
-}
-
-.social-list li a i {
-    font-size: 2rem;
-}
-@media only screen and (max-width: 600px) {
-    /* styles for small screens */
-  }
- 

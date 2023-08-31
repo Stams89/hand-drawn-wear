@@ -10,7 +10,7 @@
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
-  --pink: #cb6abe;
+  --pink: #91afcc;
   --red: #af3aa0;
   --orange: #fd7e14;
   --yellow: #ffc107;
@@ -81,7 +81,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-  color: #ae1cd3;
+  color: #d0a0dc;
   margin-top: 0;
   margin-bottom: 1rem;
 }
@@ -154,13 +154,13 @@ sup {
 }
 
 a {
-  color: #e57bd7;
+  color: #aa44c1;
   text-decoration: none;
   background-color: transparent;
 }
 
 a:hover {
-  color: #e28dca;
+  color: #18cad7;
   text-decoration: underline;
 }
 

@@ -129,32 +129,35 @@ export function Details() {
               <hr />
               <div className="details-row">
                 <p className="product-price">${product.price}</p>
-                <select
-                  className="form-select"
-                  name="size"
-                  id="size"
-                  value={size}
-                  onChange={(event) => setSize(event.target.value)}
-                >
-                  <option value="">Изберете размер</option>
-                  <option value="S">S</option>
-                  <option value="M">M</option>
-                  <option value="L">L</option>
-                  <option value="XL">XL</option>
-                </select>
+                {/* Conditionally render the select element */}
+                {product.type === 'kids' || product.type === 'women' || product.type === 'men' || product.type === 'jackets' ? (
+                  <select
+                    className="form-select"
+                    name="size"
+                    id="size"
+                    value={size}
+                    onChange={(event) => setSize(event.target.value)}
+                  >
+                    <option value="">Choose a size</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                  </select>
+                ) : null}
               </div>
               <div className="add-inputs">
                 <div className="input-group mb-3">
-                  <button
-                    className="btn btn-outline-secondary"
-                    type="button"
-                    onClick={() => handleQuantityChange(-1)}
-                  >
-                    -
-                  </button>
+                  {/* <button
+                className="btn btn-outline-secondary quantity-button"
+                type="button"
+                onClick={() => handleQuantityChange(-1)}
+              >
+                -
+              </button> */}
                   <input
-                    type="text"
-                    className="form-control"
+                    type="number"
+                    className="form-control quantity-input"
                     placeholder="Quantity"
                     aria-label="Quantity"
                     value={quantity}
@@ -162,13 +165,13 @@ export function Details() {
                       setQuantity(parseInt(event.target.value))
                     }
                   />
-                  <button
-                    className="btn btn-outline-secondary"
-                    type="button"
-                    onClick={() => handleQuantityChange(1)}
-                  >
-                    +
-                  </button>
+                  {/* <button
+                className="btn btn-outline-secondary quantity-button"
+                type="button"
+                onClick={() => handleQuantityChange(1)}
+              >
+                +
+              </button> */}
                 </div>
                 <button
                   type="button"
@@ -178,45 +181,48 @@ export function Details() {
                   Add to Cart
                 </button>
               </div>
-              {product.owner === userId && (
-                <div className="buttons d-flex">
-                  <button
-                    type="button"
-                    className="btn btn-primary btn-lg flex-grow-1 mx-2"
-                    style={{
-                      backgroundColor: "rgb(195, 119, 222);",
-                      borderColor: "#f0ad4e",
-                    }}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    name="delete_product"
-                    type="button"
-                    className="btn btn-primary btn-lg flex-grow-1 mx-2"
-                    onClick={handleDeleteClick}
-                    style={{
-                      backgroundColor: "#rgb(195, 119, 222)",
-                      borderColor: "#d9534f",
-                    }}
-                  >
-                    Delete
-                  </button>
-                </div>
-              )}
-              <div style={{ clear: "both" }} />
-              <hr />
-              <p className="product">About this product</p>
-              <p className="product-description" mb="0">
-                {product.description}
-              </p>
-              <hr />
             </div>
           </div>
         </div>
+        <hr />
+        <p className="product">About this product</p>
+        <p className="product-description mb-0">
+          {product.description}
+        </p>
+        <hr />
+        <div className="buttons d-flex">
+          {product.owner === userId && (
+            <>
+              <button
+                type="button"
+                className="btn btn-primary btn-lg flex-grow-1 mx-2"
+                style={{
+                  backgroundColor: "rgb(195, 119, 222);",
+                  borderColor: "#f0ad4e",
+                }}
+              >
+                Edit
+              </button>
+              <button
+                name="delete_product"
+                type="button"
+                className="btn btn-primary btn-lg flex-grow-1 mx-2"
+                onClick={handleDeleteClick}
+                style={{
+                  backgroundColor: "#rgb(195, 119, 222)",
+                  borderColor: "#d9534f",
+                }}
+              >
+                Delete
+              </button>
+            </>
+          )}
+        </div>
       </div>
     </div>
+
+
   );
-  
-  
+
+
 };
