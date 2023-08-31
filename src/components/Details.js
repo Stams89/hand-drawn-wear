@@ -110,6 +110,12 @@ export function Details() {
       setQuantity(newQuantity);
     }
   };
+
+  const handleEditClick = () => {
+    navigate(`/catalog/${prodId}/edit`, { state: product });
+  };
+  
+
   return (
     <div className="container my-5">
       <div className="card details-card p-0">
@@ -200,6 +206,7 @@ export function Details() {
                   backgroundColor: "rgb(195, 119, 222);",
                   borderColor: "#f0ad4e",
                 }}
+                onClick={handleEditClick}
               >
                 Edit
               </button>

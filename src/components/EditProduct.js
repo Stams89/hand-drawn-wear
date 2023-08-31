@@ -6,6 +6,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import firebase from '../../src/components/firebase';
 
 export const EditProduct = () => {
+  
   const { prodId } = useParams();
   const db = firebase.firestore();
   const navigate = useNavigate();
